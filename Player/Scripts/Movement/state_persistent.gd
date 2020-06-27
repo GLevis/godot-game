@@ -12,6 +12,9 @@ var scent_trail = []
 
 var velocity = Vector2()
 
+var hp = 20
+var prevHp = hp
+
 func _ready():
 	state_factory = PlayerStateFactory.new()
 	$ScentTimer.connect("timeout", self, "add_scent")
@@ -26,6 +29,9 @@ func add_scent():
 
 func _process(_delta):
 	state.inputHandler()
+	if prevHp > hp:
+		print(hp)
+		prevHp = hp
 	
 
 func change_state(new_state_name):
