@@ -5,7 +5,7 @@ extends MeleeEnemyState
 class_name MeleeIdleState
 
 func _ready():
-	# animated_sprite.play("run")
+	animation_player.play("idle")
 	persistent_state.detection.connect("body_entered", self, "detected")
 	persistent_state.player_detected = false
 
@@ -18,7 +18,7 @@ func detected(_param):
 
 
 func _physics_process(_delta):
-	pass
+	moveHandler()
 
 func moveHandler():
 	if persistent_state.player_detected == true:

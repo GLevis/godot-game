@@ -6,8 +6,9 @@ class_name MeleeChaseState
 
 
 func _ready():
-	# animated_sprite.play("run")
+	animation_player.play("chase")
 	persistent_state.detection.connect("body_exited", self, "no_chase")
+	persistent_state.inrange.connect("body_entered", self, "in_range")
 
 
 func no_chase(_param):
@@ -15,9 +16,13 @@ func no_chase(_param):
 	persistent_state.change_state("idle")
 	persistent_state.dir = Vector2.ZERO
 	
+
+func in_range(_param):
+	persistent_state.change_state("attack")
 	
 func _physics_process(_delta):
 	persistent_state.velocity = persistent_state.dir * persistent_state.speed
+	moveHandler()
 
 func moveHandler():
 	if persistent_state.player_detected:

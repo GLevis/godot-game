@@ -7,7 +7,8 @@ var states
 func _init():
 	states = {
 		"idle": MeleeIdleState,
-		"chase": MeleeChaseState
+		"chase": MeleeChaseState,
+		"attack": MeleeAttackState
 }
 
 

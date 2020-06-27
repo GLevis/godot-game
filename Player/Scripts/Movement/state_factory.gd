@@ -7,7 +7,7 @@ var states
 func _init():
 	states = {
 		"idle": IdleState,
-		"run": RunState
+		"run": RunState,
 }
 
 
