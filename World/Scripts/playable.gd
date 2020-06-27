@@ -3,6 +3,7 @@ extends TileMap
 class_name Playable
 
 var player_instance = preload("res://Player/Scenes/player.tscn")
+var treasure_instance = preload("res://Items/Treasure.tscn")
 var enemy_instance = preload("res://Enemy/Scenes/melee_enemy.tscn")
 
 var map_w = 80
@@ -27,16 +28,16 @@ var enemy2
 func _ready():
 	generate()
 	player = player_instance.instance()
-	player.position.x = start_room.center.x * 30
-	player.position.y = start_room.center.y * 30
+	player.position.x = start_room.center.x * 32
+	player.position.y = start_room.center.y	* 32
 	add_child(player)
 	enemy1 = enemy_instance.instance()
-	enemy1.position.x = end_room.center.x * 30 + 4
-	enemy1.position.y = end_room.center.y * 30 + 4
+	enemy1.position.x = end_room.center.x * 32
+	enemy1.position.y = end_room.center.y * 32
 	add_child(enemy1)
 	enemy2 = enemy_instance.instance()
-	enemy2.position.x = start_room.center.x * 30 + 4
-	enemy2.position.y = start_room.center.y * 30 + 4
+	enemy2.position.x = start_room.center.x * 32
+	enemy2.position.y = start_room.center.y * 32
 	add_child(enemy2)
 
 func _process(_delta):
@@ -53,6 +54,7 @@ func generate():
 	clear_deadends()
 	find_start_room()
 	find_end_room()
+	place_treasure()
 
 
 func fill_bg():
@@ -238,3 +240,54 @@ func chance(num):
 		return true
 	else:
 		return false
+
+func place_treasure():
+	for room in rooms:
+		if room != start_room && room != end_room:
+			var door_amt = check_perimeter(room.x, room.y, room.w, room.h)
+			if door_amt > 1:
+				continue
+				
+			else:
+				if chance(33):
+					var treasure  = treasure_instance.instance()
+					treasure.position.x = room.center.x * 32
+					treasure.position.y = room.center.y * 32
+					add_child(treasure)
+		
+func check_perimeter(room_x, room_y, width, height):
+	var room_check_complete = false
+	var counter = 0
+	var tileOn = Vector2.ZERO
+	var cell
+	for i in get_used_cells():
+		if i.x == room_x - 1 && i.y == room_y - 1:
+			cell = i
+	
+	# checks top of perimeter
+	for i in range(cell.x, cell.x + (width + 1)):
+		if get_cell(i, cell.y) == Tiles.GROUND: 
+			counter += 1
+			
+			
+	# checks left side of perimeter
+	for i in range(cell.y, cell.y + (height + 1)):
+		if get_cell(cell.x, i) == Tiles.GROUND: 
+			counter += 1
+			
+	
+	# checks bottom side of perimeter
+	for i in range(cell.x, cell.x + (width + 1)):
+		if get_cell(i, cell.y + (height + 1)) == Tiles.GROUND: 
+			counter += 1
+			
+			
+	# checks right side of perimeter
+	for i in range(cell.y, cell.y + (height + 1)):
+		if get_cell(cell.x + (width + 1), i) == Tiles.GROUND: 
+			counter += 1
+
+			
+	return counter
+
+		
