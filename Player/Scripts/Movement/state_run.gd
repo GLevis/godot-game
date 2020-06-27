@@ -1,6 +1,6 @@
 # run_state.gd
 
-extends State
+extends PlayerState
 
 class_name RunState
 

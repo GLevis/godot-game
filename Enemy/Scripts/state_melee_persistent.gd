@@ -2,31 +2,33 @@
 
 extends KinematicBody2D
 
-class_name PersistentState
-
-const scent_scene = preload("res://Player/Scenes/scent.tscn")
+class_name MeleePersistentState
 
 var state
 var state_factory
-var scent_trail = []
+var player_detected
+var target
+
+
+var dir = Vector2.ZERO
+var speed = Vector2(175, 175)
 
 var velocity = Vector2()
 
+onready var detection = get_node("Detection")
+onready var hitbox = get_node("Hitbox")
+
+func _initialization():
+	player_detected = false
+
 func _ready():
-	state_factory = PlayerStateFactory.new()
-	$ScentTimer.connect("timeout", self, "add_scent")
+	state_factory = MeleeStateFactory.new()
 	change_state("idle")
 
-func add_scent():
-	var scent = scent_scene.instance()
-	scent.player = self
-	scent.position = self.position
-	scent_trail.push_front(scent)
-	
 
 func _process(_delta):
-	state.inputHandler()
-	
+	state.moveHandler()
+
 
 func change_state(new_state_name):
 	if state != null:

@@ -2,17 +2,16 @@
 
 extends Node2D
 
-class_name PlayerState
+class_name MeleeEnemyState
 
 var change_state
 var animated_sprite
 var persistent_state
 var velocity
-var left_pressed = false
 
 # Writing _delta instead of delta here prevents the unused variable warning.
 func _physics_process(_delta):
-	persistent_state.move_and_slide(persistent_state.velocity)
+	persistent_state.move_and_slide(persistent_state.dir * persistent_state.speed)
 
 
 func setup(change_state, animated_sprite, persistent_state):
@@ -21,5 +20,5 @@ func setup(change_state, animated_sprite, persistent_state):
 	self.persistent_state = persistent_state
 
 
-func inputHandler():
+func moveHandler():
 	pass

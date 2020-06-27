@@ -2,7 +2,8 @@ extends TileMap
 
 class_name Playable
 
-var player = preload("res://Player/Scenes/player.tscn")
+var player_instance = preload("res://Player/Scenes/player.tscn")
+var enemy_instance = preload("res://Enemy/Scenes/melee_enemy.tscn")
 
 var map_w = 80
 var map_h = 50
@@ -19,16 +20,25 @@ var rooms = []
 var start_room = null
 var end_room = null
 
+var player
+var enemy1
+var enemy2
+
 func _ready():
 	generate()
-	player = player.instance()
-	add_child(player)
-	print(start_room.center.x)
-	print(start_room.center.y)
+	player = player_instance.instance()
 	player.position.x = start_room.center.x * 30
 	player.position.y = start_room.center.y * 30
-	print(player.position.x)
-	print(player.position.y)
+	add_child(player)
+	enemy1 = enemy_instance.instance()
+	enemy1.position.x = end_room.center.x * 30 + 4
+	enemy1.position.y = end_room.center.y * 30 + 4
+	add_child(enemy1)
+	enemy2 = enemy_instance.instance()
+	enemy2.position.x = start_room.center.x * 30 + 4
+	enemy2.position.y = start_room.center.y * 30 + 4
+	add_child(enemy2)
+
 func _process(_delta):
 	pass
 

@@ -1,13 +1,13 @@
 # state_factory.gd
 
-class_name PlayerStateFactory
+class_name MeleeStateFactory
 
 var states
 
 func _init():
 	states = {
-		"idle": IdleState,
-		"run": RunState
+		"idle": MeleeIdleState,
+		"chase": MeleeChaseState
 }
 
 

@@ -8,28 +8,29 @@
 radius = 4.73461
 height = 2.8791
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 3 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "run",
 "speed": 3.0
 } ]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -38,9 +39,13 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 2 )
+frames = SubResource( 4 )
 animation = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.15, 0.15 )
+
+[node name="ScentTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
