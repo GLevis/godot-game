@@ -11,7 +11,7 @@ var map_h = 50
 var min_room_size = 8
 var min_room_factor = .4
 
-enum Tiles { GROUND, BG, DOOR }
+enum Tiles { FLOOR, VOID, TOP, LEFT, RIGHT, RU_CORNER, LU_CORNER, RD_CORNER, LD_CORNER, RIGHT_CORNER, LEFT_CORNER}
 
 var tree = {}
 var leaves = []
@@ -55,13 +55,14 @@ func generate():
 	find_start_room()
 	find_end_room()
 	place_treasure()
-	place_doors()
-	purge_doors()
+	#place_doors() TODO: REPLACE WITH SCENES
+	#purge_doors()
+	decorate()
 
 func fill_bg():
 	for x in range(0, map_w):
 		for y in range(0, map_h):
-			set_cell(x, y, Tiles.BG)
+			set_cell(x, y, Tiles.VOID)
 
 
 func start_tree():
@@ -151,7 +152,7 @@ func create_rooms():
 		var r = rooms[i]
 		for x in range(r.x, r.x + r.w):
 			for y in range(r.y, r.y + r.h):
-				set_cell(x, y, Tiles.GROUND)
+				set_cell(x, y, Tiles.FLOOR)
 
 
 func join_rooms():
@@ -179,8 +180,8 @@ func connect_leaves(leaf1, leaf2):
 	
 	for i in range(x, x + w):
 		for j in range(y, y + h):
-			if get_cell(i, j) == Tiles.BG:
-				set_cell(i, j, Tiles.GROUND)
+			if get_cell(i, j) == Tiles.VOID:
+				set_cell(i, j, Tiles.FLOOR)
 
 
 func clear_deadends():
@@ -190,11 +191,11 @@ func clear_deadends():
 		done = true
 		
 		for cell in get_used_cells():
-			if get_cellv(cell) != Tiles.GROUND: continue
+			if get_cellv(cell) != Tiles.FLOOR: continue
 			
 			var bg_count = check_nearby(cell.x, cell.y)
 			if bg_count == 3:
-				set_cellv(cell, Tiles.BG)
+				set_cellv(cell, Tiles.VOID)
 				done = false
 
 
@@ -216,10 +217,10 @@ func find_end_room():
 
 func check_nearby(x, y):
 	var count = 0
-	if get_cell(x, y - 1) == Tiles.BG: count += 1
-	if get_cell(x, y + 1) == Tiles.BG: count += 1
-	if get_cell(x - 1, y) == Tiles.BG: count += 1
-	if get_cell(x + 1, y) == Tiles.BG: count += 1
+	if get_cell(x, y - 1) == Tiles.VOID: count += 1
+	if get_cell(x, y + 1) == Tiles.VOID: count += 1
+	if get_cell(x - 1, y) == Tiles.VOID: count += 1
+	if get_cell(x + 1, y) == Tiles.VOID: count += 1
 	return count
 
 
@@ -269,25 +270,25 @@ func check_perimeter(room_x, room_y, width, height):
 	
 	# checks top of perimeter
 	for i in range(cell.x, cell.x + (width + 1)):
-		if get_cell(i, cell.y) == Tiles.GROUND: 
+		if get_cell(i, cell.y) == Tiles.FLOOR: 
 			counter += 1
 			
 			
 	# checks left side of perimeter
 	for i in range(cell.y, cell.y + (height + 1)):
-		if get_cell(cell.x, i) == Tiles.GROUND: 
+		if get_cell(cell.x, i) == Tiles.FLOOR: 
 			counter += 1
 			
 	
 	# checks bottom side of perimeter
 	for i in range(cell.x, cell.x + (width + 1)):
-		if get_cell(i, cell.y + (height + 1)) == Tiles.GROUND: 
+		if get_cell(i, cell.y + (height + 1)) == Tiles.FLOOR: 
 			counter += 1
 			
 			
 	# checks right side of perimeter
 	for i in range(cell.y, cell.y + (height + 1)):
-		if get_cell(cell.x + (width + 1), i) == Tiles.GROUND: 
+		if get_cell(cell.x + (width + 1), i) == Tiles.FLOOR: 
 			counter += 1
 		
 			
@@ -304,14 +305,14 @@ func place_doors():
 		
 		# checks top of perimeter
 		for i in range(cell.x, cell.x + (room.w + 1)):
-			if get_cell(i, cell.y) == Tiles.GROUND: 
+			if get_cell(i, cell.y) == Tiles.FLOOR: 
 				set_cell(i, cell.y, Tiles.DOOR)
 				
 		# checks left side of perimeter
 		for i in range(cell.y, cell.y + (room.h + 1)):
 			if get_cell(cell.x, i) == Tiles.GROUND: 
 				set_cell(cell.x, i, Tiles.DOOR)
-				
+		
 		
 		# checks bottom side of perimeter
 		for i in range(cell.x, cell.x + (room.w + 1)):
@@ -335,3 +336,32 @@ func purge_doors():
 				bg_count += 2
 			if bg_count != 2:
 				set_cell(cell.x, cell.y, Tiles.GROUND)
+
+
+func decorate():
+	var cell
+	for room in rooms:
+		for i in get_used_cells():
+			if i.x == room.x - 1 && i.y == room.y - 1:
+				cell = i
+		
+		# checks top of perimeter
+		for i in range(cell.x, cell.x + (room.w + 2)):
+			if i== cell.x:
+				set_cell(i, cell.y, Tiles.LEFT_CORNER)
+			if i == cell.x + (room.w + 1):
+				set_cell(i, cell.y, Tiles.RIGHT_CORNER)
+			if get_cell(i, cell.y) == Tiles.VOID: 
+				set_cell(i, cell.y, Tiles.TOP)
+		
+		# checks left side of perimeter
+		for i in range(cell.y + 1, cell.y + (room.h + 1)):
+			if get_cell(cell.x, i) == Tiles.VOID: 
+				set_cell(cell.x, i, Tiles.LEFT)
+		
+		# checks right side of perimeter
+		for i in range(cell.y + 1, cell.y + (room.h + 1)):
+			if get_cell(cell.x + (room.w + 1), i) == Tiles.VOID: 
+				set_cell(cell.x + (room.w + 1), i, Tiles.RIGHT)
+
+		
