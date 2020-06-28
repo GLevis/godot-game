@@ -10,7 +10,8 @@ var player_detected
 var target
 
 var dir = Vector2.ZERO
-var speed = Vector2(175, 175)
+var idle_speed = Vector2(60, 60)
+var speed = Vector2(130, 130)
 
 var velocity = Vector2()
 
@@ -21,6 +22,7 @@ onready var detection = get_node("Detection")
 onready var inrange = get_node("InRange")
 onready var animation_player = get_node("AnimationPlayer")
 onready var hitbox = get_node("Hitbox")
+onready var direction_timer = get_node("DirectionTimer")
 
 func _initialization():
 	player_detected = false

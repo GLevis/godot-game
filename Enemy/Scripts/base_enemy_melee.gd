@@ -11,7 +11,7 @@ var velocity
 
 # Writing _delta instead of delta here prevents the unused variable warning.
 func _physics_process(_delta):
-	persistent_state.move_and_slide(persistent_state.dir * persistent_state.speed)
+	persistent_state.move_and_slide(persistent_state.velocity)
 
 
 func setup(change_state, animation_player, persistent_state):

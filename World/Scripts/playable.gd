@@ -55,7 +55,8 @@ func generate():
 	find_start_room()
 	find_end_room()
 	place_treasure()
-
+	place_doors()
+	purge_doors()
 
 func fill_bg():
 	for x in range(0, map_w):
@@ -241,6 +242,7 @@ func chance(num):
 	else:
 		return false
 
+
 func place_treasure():
 	for room in rooms:
 		if room != start_room && room != end_room:
@@ -254,7 +256,8 @@ func place_treasure():
 					treasure.position.x = room.center.x * 32
 					treasure.position.y = room.center.y * 32
 					add_child(treasure)
-		
+
+
 func check_perimeter(room_x, room_y, width, height):
 	var room_check_complete = false
 	var counter = 0
@@ -286,8 +289,49 @@ func check_perimeter(room_x, room_y, width, height):
 	for i in range(cell.y, cell.y + (height + 1)):
 		if get_cell(cell.x + (width + 1), i) == Tiles.GROUND: 
 			counter += 1
-
+		
 			
 	return counter
 
+
+func place_doors():
+	var cell
+	var potential_doors = []
+	for room in rooms:
+		for i in get_used_cells():
+			if i.x == room.x - 1 && i.y == room.y - 1:
+				cell = i
 		
+		# checks top of perimeter
+		for i in range(cell.x, cell.x + (room.w + 1)):
+			if get_cell(i, cell.y) == Tiles.GROUND: 
+				set_cell(i, cell.y, Tiles.DOOR)
+				
+		# checks left side of perimeter
+		for i in range(cell.y, cell.y + (room.h + 1)):
+			if get_cell(cell.x, i) == Tiles.GROUND: 
+				set_cell(cell.x, i, Tiles.DOOR)
+				
+		
+		# checks bottom side of perimeter
+		for i in range(cell.x, cell.x + (room.w + 1)):
+			if get_cell(i, cell.y + (room.h + 1)) == Tiles.GROUND: 
+				set_cell(i, cell.y + (room.h + 1), Tiles.DOOR)
+				
+				
+		# checks right side of perimeter
+		for i in range(cell.y, cell.y + (room.h + 1)):
+			if get_cell(cell.x + (room.w + 1), i) == Tiles.GROUND: 
+				set_cell(cell.x + (room.w + 1), i, Tiles.DOOR)
+
+
+func purge_doors():
+	for cell in get_used_cells():
+		var bg_count = 0
+		if get_cellv(cell) == Tiles.DOOR:
+			if get_cellv(Vector2(cell.x, cell.y + 1)) == Tiles.BG && get_cellv(Vector2(cell.x, cell.y - 1)) == Tiles.BG:
+				bg_count += 2
+			if get_cellv(Vector2(cell.x - 1, cell.y)) == Tiles.BG && get_cellv(Vector2(cell.x + 1, cell.y)) == Tiles.BG:
+				bg_count += 2
+			if bg_count != 2:
+				set_cell(cell.x, cell.y, Tiles.GROUND)
