@@ -1,0 +1,214 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://GUI/scroll.png" type="Texture" id=1]
+[ext_resource path="res://GUI/Buttons/RollButton/RollButton_hover.png" type="Texture" id=2]
+[ext_resource path="res://GUI/Buttons/RollButton/RollButton_normal.png" type="Texture" id=3]
+[ext_resource path="res://GUI/Buttons/RollButton/RollButton_pressed.png" type="Texture" id=4]
+[ext_resource path="res://Player/Sprites/player_idle.png" type="Texture" id=5]
+[ext_resource path="res://GUI/scroll_frame.png" type="Texture" id=6]
+[ext_resource path="res://CharacterCreation.gd" type="Script" id=7]
+[ext_resource path="res://GUI/Stat_table.png" type="Texture" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.1, 0.7, 1.7, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 5, 12, 17 ]
+}
+
+[node name="CharacterCreation" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 256.0
+margin_right = -256.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scroll" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -14.0
+margin_top = -7.0
+margin_right = -14.0
+margin_bottom = -7.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharFrame" type="TextureRect" parent="Scroll"]
+anchor_left = 0.219
+anchor_top = 0.32
+anchor_right = 0.406
+anchor_bottom = 0.533
+margin_left = -0.128006
+margin_top = -1.52588e-05
+margin_right = 0.127991
+margin_bottom = 8.19998
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Scroll/CharFrame"]
+position = Vector2( 48, 64 )
+scale = Vector2( 1.875, 1.875 )
+texture = ExtResource( 5 )
+hframes = 18
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scroll/CharFrame/Sprite"]
+anims/idle = SubResource( 1 )
+
+[node name="RollButton" type="TextureButton" parent="Scroll"]
+anchor_left = 0.516
+anchor_top = 0.64
+anchor_right = 0.766
+anchor_bottom = 0.707
+margin_left = -8.19202
+margin_top = -8.00003
+margin_right = 7.80798
+margin_bottom = -0.200012
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StatBlock" type="TextureRect" parent="Scroll"]
+anchor_left = 0.437
+anchor_top = 0.253
+anchor_right = 0.828
+anchor_bottom = 0.6
+margin_left = 0.255997
+margin_top = 0.199982
+margin_right = 0.0639648
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HpAmnt" type="Label" parent="Scroll/StatBlock"]
+anchor_left = 0.69
+anchor_top = 0.019
+anchor_right = 0.985
+anchor_bottom = 0.163
+margin_left = -1.00002
+margin_top = -0.952
+margin_right = -1.52588e-05
+margin_bottom = 0.0960007
+rect_min_size = Vector2( 59.5, 31 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AtkAmnt" type="Label" parent="Scroll/StatBlock"]
+anchor_left = 0.69
+anchor_top = 0.183
+anchor_right = 0.99
+anchor_bottom = 0.332
+margin_left = -1.52588e-05
+margin_top = -1.064
+margin_right = -0.500015
+margin_bottom = -1.056
+rect_min_size = Vector2( 59.5, 31 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DefAmnt" type="Label" parent="Scroll/StatBlock"]
+anchor_left = 0.69
+anchor_top = 0.346
+anchor_right = 0.982
+anchor_bottom = 0.495
+margin_left = -1.00002
+margin_top = 0.0319977
+margin_right = 0.0999908
+margin_bottom = 0.0399933
+rect_min_size = Vector2( 59.5, 31 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IntAmnt" type="Label" parent="Scroll/StatBlock"]
+anchor_left = 0.69
+anchor_top = 0.51
+anchor_right = 0.99
+anchor_bottom = 0.659
+margin_left = -1.52588e-05
+margin_top = -0.0800095
+margin_right = -0.500015
+margin_bottom = -0.0720062
+rect_min_size = Vector2( 59.5, 31 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpdAmnt" type="Label" parent="Scroll/StatBlock"]
+anchor_left = 0.69
+anchor_top = 0.678
+anchor_right = 0.98
+anchor_bottom = 0.817
+margin_left = -1.52588e-05
+margin_top = -1.024
+margin_right = 1.5
+margin_bottom = 1.064
+rect_min_size = Vector2( 59.5, 31 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StamAmnt" type="Label" parent="Scroll/StatBlock"]
+anchor_left = 0.695
+anchor_top = 0.837
+anchor_right = 0.995
+anchor_bottom = 0.986
+margin_left = -1.00002
+margin_top = -0.0960083
+margin_right = -1.50002
+margin_bottom = -0.0880127
+rect_min_size = Vector2( 59.5, 31 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Scroll/RollButton" to="." method="_on_RollButton_pressed"]
