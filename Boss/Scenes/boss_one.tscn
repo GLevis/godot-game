@@ -175,11 +175,11 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 15
-frame = 28
+frame = 19
 
 [node name="top_left_wing" type="Sprite" parent="CollisionShape2D"]
-position = Vector2( -0.101947, -0.250235 )
-rotation = 0.0129405
+position = Vector2( -6.6, -16.2 )
+rotation = -0.837758
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 vframes = 2
@@ -187,8 +187,8 @@ hframes = 15
 frame = 1
 
 [node name="bottom_left_wing" type="Sprite" parent="CollisionShape2D"]
-position = Vector2( -0.111216, -0.0648756 )
-rotation = 0.00129405
+position = Vector2( -7.2, -4.2 )
+rotation = -0.418879
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 vframes = 2
@@ -196,8 +196,8 @@ hframes = 15
 frame = 2
 
 [node name="top_right_wing" type="Sprite" parent="CollisionShape2D"]
-position = Vector2( 0.101947, -0.250235 )
-rotation = -0.0129405
+position = Vector2( 6.6, -16.2 )
+rotation = 0.837758
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 vframes = 2
@@ -205,8 +205,8 @@ hframes = 15
 frame = 3
 
 [node name="bottom_right_wing" type="Sprite" parent="CollisionShape2D"]
-position = Vector2( 0.111216, -0.0648756 )
-rotation = 0.00129405
+position = Vector2( 7.2, -4.2 )
+rotation = 0.418879
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 vframes = 2
