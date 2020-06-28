@@ -91,7 +91,7 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 3
-frame = 5
+frame = 3
 
 [node name="Detection" type="Area2D" parent="."]
 
