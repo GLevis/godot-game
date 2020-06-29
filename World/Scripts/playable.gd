@@ -347,9 +347,9 @@ func decorate():
 		
 		# checks top of perimeter
 		for i in range(cell.x, cell.x + (room.w + 2)):
-			if i== cell.x:
+			if i== cell.x && get_cell(i, cell.y) == Tiles.VOID:
 				set_cell(i, cell.y, Tiles.LEFT_CORNER)
-			if i == cell.x + (room.w + 1):
+			if i == cell.x + (room.w + 1) && get_cell(i, cell.y) == Tiles.VOID:
 				set_cell(i, cell.y, Tiles.RIGHT_CORNER)
 			if get_cell(i, cell.y) == Tiles.VOID: 
 				set_cell(i, cell.y, Tiles.TOP)
