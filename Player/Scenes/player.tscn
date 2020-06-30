@@ -43,6 +43,7 @@ frames = SubResource( 4 )
 animation = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+current = true
 zoom = Vector2( 0.15, 0.15 )
 
 [node name="ScentTimer" type="Timer" parent="."]
