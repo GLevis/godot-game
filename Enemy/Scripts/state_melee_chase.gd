@@ -13,7 +13,6 @@ func _ready():
 
 func no_chase(_param):
 	persistent_state.player_detected = false
-	persistent_state.dir = Vector2.ZERO
 	persistent_state.change_state("idle")
 
 	
@@ -22,24 +21,24 @@ func in_range(_param):
 	persistent_state.change_state("attack")
 	
 func _physics_process(_delta):
-	persistent_state.velocity = persistent_state.dir * persistent_state.speed 
+	persistent_state.velocity = persistent_state.dir * persistent_state.speed
 	moveHandler()
 
 func moveHandler():
-	if persistent_state.player_detected:
-		var look = persistent_state.get_node("RayCast2D")
-		look.cast_to = (persistent_state.target.position - persistent_state.position)
-		look.force_raycast_update()
-		
-		if !look.is_colliding():
-			persistent_state.dir = look.cast_to.normalized()
-		else:
-			for scent in persistent_state.target.scent_trail:
-				look.cast_to = scent.position - persistent_state.position
-				look.force_raycast_update()
-				
-				if !look.is_colliding():
-					persistent_state.dir = look.cast_to.normalized()
-					break
+	#if persistent_state.player_detected:
+	var look = persistent_state.get_node("RayCast2D")
+	look.cast_to = (persistent_state.target.position - persistent_state.position)
+	look.force_raycast_update()
+	
+	if !look.is_colliding():
+		persistent_state.dir = look.cast_to.normalized()
 	else:
-		persistent_state.change_state("idle")
+		for scent in persistent_state.target.scent_trail:
+			look.cast_to = scent.position - persistent_state.position
+			look.force_raycast_update()
+			
+			if !look.is_colliding():
+				persistent_state.dir = look.cast_to.normalized()
+				break
+	#else:
+		#persistent_state.change_state("idle")

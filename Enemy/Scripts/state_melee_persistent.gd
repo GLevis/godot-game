@@ -56,5 +56,16 @@ func die():
 	queue_free()
 
 func receiveKnockback(from):
-	hitstun = true
-	knockdir = transform.get_origin() - from.transform.get_origin()
+	knockdir = -(from.get_parent().position - self.position) * Vector2(35,35)
+	var timer = Timer.new()
+	add_child(timer)
+	timer.set_one_shot(false)
+	timer.set_wait_time(.5)
+	timer.connect("timeout", self, "remove_knockback")
+	timer.start()
+	change_state("hitstun")
+	print(knockdir)
+
+
+func remove_knockback():
+	knockdir = Vector2.ZERO

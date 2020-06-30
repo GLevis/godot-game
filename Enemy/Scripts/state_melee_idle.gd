@@ -5,7 +5,7 @@ extends MeleeEnemyState
 class_name MeleeIdleState
 
 var direction = RandomNumberGenerator.new()
-
+ 
 func _ready():
 	animation_player.play("idle")
 	persistent_state.detection.connect("body_entered", self, "detected")
