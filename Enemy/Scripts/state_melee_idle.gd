@@ -27,7 +27,10 @@ func change_direction():
 		print(direction.randi_range(1,2))
 	else:
 		randomize()
-		persistent_state.velocity = Vector2(direction.randf_range(-1, 1), direction.randi_range(-1, 1)) * persistent_state.idle_speed
+		var x = direction.randf_range(-1, 1)
+		randomize()
+		var y = direction.randf_range(-1, 1)
+		persistent_state.velocity = Vector2(x, y) * persistent_state.idle_speed
 
 
 func _physics_process(_delta):

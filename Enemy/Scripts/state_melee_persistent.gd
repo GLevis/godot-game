@@ -43,4 +43,4 @@ func change_state(new_state_name):
 	state = state_factory.get_state(new_state_name).new()
 	state.setup(funcref(self, "change_state"), $AnimationPlayer, self)
 	state.name = "current_state"
-	add_child(state)
+	call_deferred("add_child", state)
