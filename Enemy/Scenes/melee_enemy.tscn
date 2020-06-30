@@ -4,7 +4,7 @@
 [ext_resource path="res://Enemy/Scripts/state_melee_persistent.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 2.27627
+radius = 6.15651
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 35.5346
@@ -18,7 +18,7 @@ length = 2.0
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D/golden_snitch:frame")
+tracks/0/path = NodePath("Hurtbox/golden_snitch:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -48,7 +48,7 @@ length = 1.3
 loop = true
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D/golden_snitch:frame")
+tracks/0/path = NodePath("Hurtbox/golden_snitch:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -64,7 +64,7 @@ tracks/0/keys = {
 resource_name = "idle"
 length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D/golden_snitch:frame")
+tracks/0/path = NodePath("Hurtbox/golden_snitch:frame")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -83,10 +83,10 @@ collision_layer = 8
 collision_mask = 7
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="golden_snitch" type="Sprite" parent="CollisionShape2D"]
+[node name="golden_snitch" type="Sprite" parent="Hurtbox"]
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 vframes = 3
