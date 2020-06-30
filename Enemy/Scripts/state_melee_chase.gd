@@ -13,15 +13,16 @@ func _ready():
 
 func no_chase(_param):
 	persistent_state.player_detected = false
-	persistent_state.change_state("idle")
 	persistent_state.dir = Vector2.ZERO
+	persistent_state.change_state("idle")
+
 	
 
 func in_range(_param):
 	persistent_state.change_state("attack")
 	
 func _physics_process(_delta):
-	persistent_state.velocity = persistent_state.dir * persistent_state.speed
+	persistent_state.velocity = persistent_state.dir * persistent_state.speed 
 	moveHandler()
 
 func moveHandler():

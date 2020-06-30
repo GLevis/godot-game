@@ -8,6 +8,7 @@ func _init():
 	states = {
 		"idle": IdleState,
 		"run": RunState,
+		"melee": MeleeState,
 }
 
 

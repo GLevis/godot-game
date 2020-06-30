@@ -24,6 +24,7 @@ var end_room = null
 
 var player
 var enemy1
+var enemy2
 var boss
 
 func _ready():
@@ -41,6 +42,10 @@ func _ready():
 	player.position.x = start_room.center.x * 32
 	player.position.y = start_room.center.y	* 32
 	add_child(player)
+	enemy2 = enemy_instance.instance()
+	enemy2.position.x = end_room.center.x * 32
+	enemy2.position.y = end_room.center.y * 32
+	add_child(enemy2)
 
 func _process(_delta):
 	pass

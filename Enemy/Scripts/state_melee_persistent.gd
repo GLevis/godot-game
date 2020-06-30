@@ -10,13 +10,16 @@ var player_detected
 var target
 
 var dir = Vector2.ZERO
+var knockdir = Vector2.ZERO
 var idle_speed = Vector2(60, 60)
 var speed = Vector2(130, 130)
 
 var velocity = Vector2()
 
-var hp
+var hp = 10
 var atk = 1
+var prevHp = hp
+var hitstun = false
 
 onready var detection = get_node("Detection")
 onready var inrange = get_node("InRange")
@@ -34,7 +37,11 @@ func _ready():
 
 
 func _process(_delta):
-	pass
+	if prevHp > hp:
+		print(hp)
+		prevHp = hp
+	if hp <= 0:
+		die()
 
 
 func change_state(new_state_name):
@@ -44,3 +51,10 @@ func change_state(new_state_name):
 	state.setup(funcref(self, "change_state"), $AnimationPlayer, self)
 	state.name = "current_state"
 	call_deferred("add_child", state)
+
+func die():
+	queue_free()
+
+func receiveKnockback(from):
+	hitstun = true
+	knockdir = transform.get_origin() - from.transform.get_origin()

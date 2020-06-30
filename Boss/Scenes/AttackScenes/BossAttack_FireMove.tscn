@@ -35,8 +35,10 @@ tracks/1/keys = {
 [node name="FireRings" type="Area2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 1 )
 hframes = 20
+frame = 19
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

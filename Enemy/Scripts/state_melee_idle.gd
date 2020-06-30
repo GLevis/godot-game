@@ -11,6 +11,7 @@ func _ready():
 	persistent_state.detection.connect("body_entered", self, "detected")
 	persistent_state.direction_timer.connect("timeout", self, "change_direction")
 	persistent_state.player_detected = false
+	persistent_state.hitstun = false
 
 
 func detected(_param):

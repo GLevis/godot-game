@@ -9,6 +9,7 @@ func _ready():
 	animation_player.play("attack")
 	persistent_state.inrange.connect("body_exited", self, "out_of_range")
 	persistent_state.hitbox.connect("body_entered", self, "attackHandler")
+	
 func out_of_range(_param):
 	persistent_state.change_state("chase")
 	

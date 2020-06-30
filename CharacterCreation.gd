@@ -16,9 +16,8 @@ func _on_RollButton_pressed():
 	
 	
 func roll_stats():
-	var counter = 0
 	var stats = []
-	while counter < 6:
+	for i in 6:
 		randomize()
 		var num1 = randi() % 6 + 1
 		randomize()
@@ -32,6 +31,5 @@ func roll_stats():
 		stat.remove(0)
 		var stats_added = stat[0] + stat[1] + stat[2]
 		stats.push_back(stats_added)
-		counter += 1
 	return stats
 		

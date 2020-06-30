@@ -4,9 +4,8 @@
 [ext_resource path="res://Player/Scripts/Movement/state_persistent.gd" type="Script" id=2]
 [ext_resource path="res://Player/Sprites/run.png" type="Texture" id=3]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 4.73461
-height = 2.8791
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 2.06366, 6.0243 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
@@ -35,7 +34,7 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.393 )
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.2, 0.2 )
