@@ -36,7 +36,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1.5 ),
+"times": PoolRealArray( 0, 0.5, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -91,7 +91,6 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 3
-frame = 3
 
 [node name="Detection" type="Area2D" parent="."]
 

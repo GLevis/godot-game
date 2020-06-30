@@ -40,6 +40,7 @@ func _ready():
 	enemy2.position.y = start_room.center.y * 32
 	add_child(enemy2)
 
+
 func _process(_delta):
 	pass
 
@@ -364,4 +365,4 @@ func decorate():
 			if get_cell(cell.x + (room.w + 1), i) == Tiles.VOID: 
 				set_cell(cell.x + (room.w + 1), i, Tiles.RIGHT)
 
-		
+
