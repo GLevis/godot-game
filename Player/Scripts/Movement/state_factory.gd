@@ -9,6 +9,7 @@ func _init():
 		"idle": IdleState,
 		"run": RunState,
 		"melee": MeleeState,
+		"magic": MagicState,
 }
 
 

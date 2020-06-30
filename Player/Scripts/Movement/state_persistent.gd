@@ -6,11 +6,15 @@ class_name PersistentState
 
 const scent_scene = preload("res://Player/Scenes/scent.tscn")
 const melee_weap_scene = preload("res://Items/ItemWeapon.tscn")
+const staff_weap_scene = preload("res://Items/ItemStaff.tscn")
+const fireball_scene = preload("res://Items/Scenes/Fireball.tscn")
 
 var state
 var state_factory
 var scent_trail = []
-var melee_weapon
+var weapon
+var current_mouse_pos
+var fireball
 
 var velocity = Vector2()
 
@@ -21,9 +25,8 @@ func _ready():
 	state_factory = PlayerStateFactory.new()
 	$ScentTimer.connect("timeout", self, "add_scent")
 	change_state("idle")
-	melee_weapon = melee_weap_scene.instance()
-	melee_weapon.new_item("Basic Sword", "Slashing", 1, 0, 0, 0, 1, 0, 0, 0, null, 1)
-	add_child(melee_weapon)
+	weapon = staff_weap_scene.instance()
+	add_child(weapon)
 
 
 func add_scent():
