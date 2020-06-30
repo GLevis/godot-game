@@ -5,6 +5,7 @@ class_name Playable
 var player_instance = preload("res://Player/Scenes/player.tscn")
 var treasure_instance = preload("res://Items/Treasure.tscn")
 var enemy_instance = preload("res://Enemy/Scenes/melee_enemy.tscn")
+var boss_instance = preload("res://Boss/Scenes/boss_one.tscn")
 
 var map_w = 80
 var map_h = 50
@@ -23,23 +24,23 @@ var end_room = null
 
 var player
 var enemy1
-var enemy2
+var boss
 
 func _ready():
 	generate()
+	
+	enemy1 = enemy_instance.instance()
+	enemy1.position.x = start_room.center.x * 32
+	enemy1.position.y = start_room.center.y * 32
+	add_child(enemy1)
+	boss = boss_instance.instance()
+	boss.position.x = end_room.center.x * 32
+	boss.position.y = end_room.center.y * 32
+	add_child(boss)
 	player = player_instance.instance()
 	player.position.x = start_room.center.x * 32
 	player.position.y = start_room.center.y	* 32
 	add_child(player)
-	enemy1 = enemy_instance.instance()
-	enemy1.position.x = end_room.center.x * 32
-	enemy1.position.y = end_room.center.y * 32
-	add_child(enemy1)
-	enemy2 = enemy_instance.instance()
-	enemy2.position.x = start_room.center.x * 32
-	enemy2.position.y = start_room.center.y * 32
-	add_child(enemy2)
-
 
 func _process(_delta):
 	pass
@@ -257,6 +258,7 @@ func place_treasure():
 					var treasure  = treasure_instance.instance()
 					treasure.position.x = room.center.x * 32
 					treasure.position.y = room.center.y * 32
+					treasure.set_z_index(1)
 					add_child(treasure)
 
 
