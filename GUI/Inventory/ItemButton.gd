@@ -5,7 +5,7 @@ signal ReceivedItem
 var CurrentItem = null
 
 func _ready():
-	get_tree().get_root().get_node("Inventory").connect("store_current_item", self, "_On_item_stored")
+	get_tree().get_root().get_.node("Inventory").connect("store_current_item", self, "_On_item_stored")
 
 func _on_ItemButton_button_up():
 	var image = self.name
