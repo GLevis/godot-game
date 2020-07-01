@@ -1,8 +1,8 @@
 # run_state.gd
 
-extends MeleeEnemyState
+extends BossOneState
 
-class_name MeleeIdleState
+class_name BossOneIdleState
 
 var direction = RandomNumberGenerator.new()
  

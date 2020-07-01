@@ -4,7 +4,7 @@
 [ext_resource path="res://Enemy/Scripts/state_melee_persistent.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 2.27627
+radius = 6.15651
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 35.5346
@@ -99,6 +99,7 @@ shape = SubResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
+collision_mask = 2
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 16
@@ -120,4 +121,3 @@ shape = SubResource( 7 )
 
 [node name="DirectionTimer" type="Timer" parent="."]
 wait_time = 2.675
-autostart = true

@@ -4,7 +4,7 @@ extends PlayerState
 
 class_name RunState
 
-var move_speed = Vector2(180, 180)
+var move_speed = Vector2(100, 100)
 var min_move_speed = 0.005
 var friction = 0.32
 
@@ -33,9 +33,9 @@ func inputHandler():
 		persistent_state.velocity.y += move_speed.y
 	
 	if Input.is_action_pressed("sprint"):
-		move_speed = Vector2(500, 500)
+		move_speed = Vector2(250, 250)
 	else:
-		move_speed = Vector2(300, 300)
+		move_speed = Vector2(100, 100)
 	
 		
 	if Input.is_action_just_pressed("left_attack"):

@@ -4,7 +4,7 @@
 [ext_resource path="res://Enemy/Scripts/state_melee_persistent.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 3.55655
+radius = 5.75955
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 28.9222
@@ -145,11 +145,11 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Hurtbox"]
 position = Vector2( 0.5, -0.5 )
-scale = Vector2( 0.2, 0.2 )
+scale = Vector2( 0.5, 0.6 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 19
-frame = 76
+frame = 89
 
 [node name="Sunbeam" type="Sprite" parent="Hurtbox"]
 position = Vector2( 0.5, 5.9 )
@@ -157,7 +157,7 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 19
-frame = 95
+frame = 108
 
 [node name="Detection" type="Area2D" parent="."]
 visible = false
@@ -181,9 +181,8 @@ collision_layer = 16
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( -1.034, 0.716 )
+position = Vector2( -1.034, 0.9 )
 shape = SubResource( 8 )
-disabled = true
 
 [node name="InRange" type="Area2D" parent="."]
 visible = false
