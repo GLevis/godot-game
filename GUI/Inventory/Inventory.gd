@@ -12,8 +12,6 @@ var IsHolding = false
 
 var buttoncounter = 0
 
-
-
 func _ready():
 	for i in get_tree().get_nodes_in_group("ItemOnGround"):
 		i.connect("player_in_range", self, "_on_Player_in_range")
@@ -36,6 +34,9 @@ func _on_Player_in_range(ItemName):
 		if get_node(str(i.get_path()) + "/ItemBg/ItemButton" + str(counter)).get_normal_texture() == null:
 			get_node(str(i.get_path()) + "/ItemBg/ItemButton" + str(counter)).set_normal_texture(item_texture)
 			emit_signal("item_picked_up")
+			#if emit_signal("item_picked_up") == true:
+				#get_node(str(i.get_path()) + "/ItemBg/ItemButton" + str(counter-1)).getget_normal_texture() == null
+				# ***** The Stuff Above is supposed to help with the inventory dupes but idk why its not doing anything ********
 			break
 		
 		if get_node(str(i.get_path()) + "/ItemBg/ItemButton"+ str(counter)).get_normal_texture() != null && counter != 23:
@@ -45,8 +46,8 @@ func _on_Player_in_range(ItemName):
 		if counter == 23:
 			emit_signal("inventory_full")
 			
-		counter = counter + 1			
-				
+		counter = counter + 1
+			
 func _on_Button_pressed(image, ItemGiven):
 	if !IsHolding:
 		ButtonNum = str(image).right(10)
