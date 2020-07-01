@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/staircase.png-0b10e8ac20f9fc44bd2f608d2b74341e.stex"
+path="res://.import/staircase.png-89f5cc6d3bd2475b598b6735c460a24a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Inventory/staircase.png"
-dest_files=[ "res://.import/staircase.png-0b10e8ac20f9fc44bd2f608d2b74341e.stex" ]
+source_file="res://GUI/Inventory/Old inv/staircase.png"
+dest_files=[ "res://.import/staircase.png-89f5cc6d3bd2475b598b6735c460a24a.stex" ]
 
 [params]
 

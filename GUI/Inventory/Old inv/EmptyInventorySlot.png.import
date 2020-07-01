@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass.png-dc93d4baf24b6035fa398491b27649bb.stex"
+path="res://.import/EmptyInventorySlot.png-db3619a32c755d03306bbd8cc15a0721.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Inventory/grass.png"
-dest_files=[ "res://.import/grass.png-dc93d4baf24b6035fa398491b27649bb.stex" ]
+source_file="res://GUI/Inventory/Old inv/EmptyInventorySlot.png"
+dest_files=[ "res://.import/EmptyInventorySlot.png-db3619a32c755d03306bbd8cc15a0721.stex" ]
 
 [params]
 

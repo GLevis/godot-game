@@ -1,14 +1,13 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://GUI/Inventory/inventory_bg.png" type="Texture" id=1]
+[ext_resource path="res://GUI/Inventory/Old inv/inventory_bg.png" type="Texture" id=1]
 [ext_resource path="res://ConnectionIi-2wj8.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://GUI/Inventory/Inventory.gd" type="Script" id=4]
-[ext_resource path="res://GUI/Inventory/staircase.png" type="Texture" id=5]
-[ext_resource path="res://GUI/Inventory/grass.png" type="Texture" id=6]
-[ext_resource path="res://GUI/Inventory/ItemButton.gd" type="Script" id=7]
+[ext_resource path="res://GUI/Inventory/Old inv/Inventory_backup.gd" type="Script" id=4]
+[ext_resource path="res://GUI/Inventory/Old inv/staircase.png" type="Texture" id=5]
+[ext_resource path="res://GUI/Inventory/Old inv/grass.png" type="Texture" id=6]
+[ext_resource path="res://GUI/Inventory/Old inv/ItemButton.gd" type="Script" id=7]
 [ext_resource path="res://Items/Sword.png" type="Texture" id=8]
-
 
 
 
@@ -88,9 +87,9 @@ margin_right = 1070.0
 margin_bottom = 64.0
 
 [node name="Label" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/InventoryHeader"]
-margin_top = 15.0
+margin_top = 31.0
 margin_right = 1002.0
-margin_bottom = 48.0
+margin_bottom = 33.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.133333, 0.0117647, 0.247059, 1 )
@@ -1934,24 +1933,24 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector"]
 margin_right = 300.0
-margin_bottom = 33.0
+margin_bottom = 2.0
 custom_fonts/font = SubResource( 5 )
 text = "ItemInspector"
 align = 1
 valign = 1
 
 [node name="Stats" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector"]
-margin_top = 37.0
+margin_top = 6.0
 margin_right = 300.0
-margin_bottom = 91.0
+margin_bottom = 14.0
 
 [node name="AtkValues" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector/Stats"]
 margin_right = 300.0
-margin_bottom = 25.0
+margin_bottom = 2.0
 
 [node name="StatName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector/Stats/AtkValues"]
 margin_right = 148.0
-margin_bottom = 25.0
+margin_bottom = 2.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 6 )
 text = "Atk"
@@ -1959,19 +1958,19 @@ text = "Atk"
 [node name="StatStat" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector/Stats/AtkValues"]
 margin_left = 152.0
 margin_right = 300.0
-margin_bottom = 25.0
+margin_bottom = 2.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 6 )
 text = "800"
 
 [node name="DefValues" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector/Stats"]
-margin_top = 29.0
+margin_top = 6.0
 margin_right = 300.0
-margin_bottom = 54.0
+margin_bottom = 8.0
 
 [node name="StatName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector/Stats/DefValues"]
 margin_right = 148.0
-margin_bottom = 25.0
+margin_bottom = 2.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 6 )
 text = "Atk"
@@ -1979,7 +1978,7 @@ text = "Atk"
 [node name="StatStat" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector/Stats/DefValues"]
 margin_left = 152.0
 margin_right = 300.0
-margin_bottom = 25.0
+margin_bottom = 2.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 6 )
 text = "800"
