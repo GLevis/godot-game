@@ -17,7 +17,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.1, 1.3 ),
+"times": PoolRealArray( -0.1, 1.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 15, 29 ]
@@ -77,8 +77,8 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 4, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( -11, -27 ) ]
 }
@@ -89,8 +89,8 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.5, 1.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 1.1 ),
+"transitions": PoolRealArray( 4, 1, 1 ),
 "update": 0,
 "values": [ 0.0, -80.0, 20.0 ]
 }
@@ -101,8 +101,8 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 4, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( -12, -7 ) ]
 }
@@ -113,8 +113,8 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 0.5, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 1.1 ),
+"transitions": PoolRealArray( 4, 1, 1 ),
 "update": 0,
 "values": [ 0.0, -40.0, 4.0 ]
 }
@@ -125,8 +125,8 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 4, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 11, -27 ) ]
 }
@@ -137,8 +137,8 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.5, 1.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 1.1 ),
+"transitions": PoolRealArray( 4, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 80.0, -20.0 ]
 }
@@ -149,8 +149,8 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 4, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 12, -7 ) ]
 }
@@ -161,8 +161,8 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 0.5, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 1.1 ),
+"transitions": PoolRealArray( 4, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 40.0, 4.0 ]
 }
@@ -181,11 +181,11 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 15
-frame = 27
+frame = 18
 
 [node name="top_left_wing" type="Sprite" parent="Hitbox"]
-position = Vector2( -2.75, -6.75 )
-rotation = 0.349066
+position = Vector2( -0.544554, -1.33663 )
+rotation = -0.0691219
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 vframes = 2
@@ -193,8 +193,8 @@ hframes = 15
 frame = 1
 
 [node name="bottom_left_wing" type="Sprite" parent="Hitbox"]
-position = Vector2( -3, -1.75 )
-rotation = 0.0349066
+position = Vector2( -0.594059, -0.346534 )
+rotation = -0.0345609
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 vframes = 2
@@ -202,8 +202,8 @@ hframes = 15
 frame = 2
 
 [node name="top_right_wing" type="Sprite" parent="Hitbox"]
-position = Vector2( 2.75, -6.75 )
-rotation = -0.349066
+position = Vector2( 0.544554, -1.33663 )
+rotation = 0.0691219
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 vframes = 2
@@ -211,8 +211,8 @@ hframes = 15
 frame = 3
 
 [node name="bottom_right_wing" type="Sprite" parent="Hitbox"]
-position = Vector2( 3, -1.75 )
-rotation = 0.0349066
+position = Vector2( 0.594059, -0.346534 )
+rotation = 0.0345609
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 vframes = 2

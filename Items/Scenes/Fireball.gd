@@ -6,6 +6,7 @@ var projectile_speed = 200
 
 func _ready():
 	apply_impulse(Vector2(), Vector2(projectile_speed, 0).rotated(rotation))
+	$AnimationPlayer.play("fire")
 	$Despawn.connect("timeout", self, "despawn")
 
 
