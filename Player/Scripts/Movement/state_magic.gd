@@ -1,6 +1,6 @@
-# state_melee_attack.gd
+# state_magic.gd
 
-extends PlayerState
+extends State
 
 class_name MagicState
 

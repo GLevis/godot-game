@@ -1,6 +1,6 @@
-# run_state.gd
+# state_chase.gd
 
-extends BossOneState
+extends State
 
 class_name BossOneChaseState
 

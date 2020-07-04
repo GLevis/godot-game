@@ -1,6 +1,6 @@
 # attack_state.gd
 
-extends MeleeEnemyState
+extends State
 
 class_name MeleeAttackState
 

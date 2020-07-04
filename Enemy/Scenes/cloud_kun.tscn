@@ -150,7 +150,7 @@ scale = Vector2( 0.5, 0.6 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 19
-frame = 38
+frame = 36
 
 [node name="Sunbeam" type="Sprite" parent="Hurtbox"]
 position = Vector2( 0.5, 5.9 )

@@ -65,7 +65,7 @@ func receiveKnockback(from):
 	timer.connect("timeout", self, "remove_knockback")
 	timer.start()
 	change_state("hitstun")
-	print(knockdir)
+	velocity += knockdir
 
 
 func remove_knockback():

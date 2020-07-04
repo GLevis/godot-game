@@ -1,11 +1,10 @@
-# attack_state.gd
+# state_attack.gd
 
-extends BossOneState
+extends State
 
 class_name BossOneAttackState
 
 func _ready():
-
 	animation_player.play("attack")
 	
 func out_of_range(_param):

@@ -1,6 +1,6 @@
-# run_state.gd
+# state_boss_one_idle.gd
 
-extends BossOneState
+extends State
 
 class_name BossOneIdleState
 
