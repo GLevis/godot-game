@@ -2,7 +2,7 @@
 
 extends KinematicBody2D
 
-class_name MeleePersistentState
+class_name BossOnePersistentState
 
 var state
 var state_factory
@@ -12,17 +12,16 @@ var target
 var dir = Vector2.ZERO
 var knockdir = Vector2.ZERO
 var idle_speed = Vector2(30, 30)
-var speed = Vector2(70, 70)
+var speed = Vector2(40, 40)
 
 var velocity = Vector2()
 
-var hp = 10
-var atk = 1
+var hp = 50
+var atk = 2
 var prevHp = hp
 var hitstun = false
 
 onready var detection = get_node("Detection")
-onready var inrange = get_node("InRange")
 onready var animation_player = get_node("AnimationPlayer")
 onready var hitbox = get_node("Hitbox")
 onready var direction_timer = get_node("DirectionTimer")
@@ -32,7 +31,7 @@ func _initialization():
 
 
 func _ready():
-	state_factory = MeleeStateFactory.new()
+	state_factory = BossOneStateFactory.new()
 	change_state("idle")
 
 

@@ -1,6 +1,6 @@
-# state_melee_attack.gd
+# state_melee.gd
 
-extends PlayerState
+extends State
 
 class_name MeleeState
 

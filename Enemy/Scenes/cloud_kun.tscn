@@ -4,7 +4,7 @@
 [ext_resource path="res://Enemy/Scripts/state_melee_persistent.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 3.55655
+radius = 5.75955
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 28.9222
@@ -64,42 +64,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "deform"
-length = 1.2
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Hurtbox/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 38, 52 ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "detected"
-length = 1.35
-loop = true
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Hurtbox/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.35 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 19, 36 ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "idle"
+resource_name = "chase"
 length = 0.3
 loop = true
 step = 0.05
@@ -116,8 +81,41 @@ tracks/0/keys = {
 "values": [ 57, 59 ]
 }
 
+[sub_resource type="Animation" id=5]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hurtbox/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 38, 52 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 1.35
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hurtbox/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.35 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 19, 36 ]
+}
+
 [sub_resource type="Animation" id=7]
-resource_name = "idle_fog"
+resource_name = "idle"
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -148,11 +146,11 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Hurtbox"]
 position = Vector2( 0.5, -0.5 )
-scale = Vector2( 0.2, 0.2 )
+scale = Vector2( 0.5, 0.6 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 19
-frame = 76
+frame = 36
 
 [node name="Sunbeam" type="Sprite" parent="Hurtbox"]
 position = Vector2( 0.5, 5.9 )
@@ -174,10 +172,10 @@ enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack = SubResource( 3 )
-anims/deform = SubResource( 4 )
-anims/detected = SubResource( 5 )
-anims/idle = SubResource( 6 )
-anims/idle_fog = SubResource( 7 )
+anims/chase = SubResource( 4 )
+anims/deform = SubResource( 5 )
+anims/detected = SubResource( 6 )
+anims/idle = SubResource( 7 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 visible = false

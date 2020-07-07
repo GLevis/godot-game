@@ -1,13 +1,12 @@
-# run_state.gd
+# state_boss_one_idle.gd
 
 extends State
 
-class_name MeleeIdleState
+class_name BossOneIdleState
 
 var direction = RandomNumberGenerator.new()
  
 func _ready():
-	animation_player.play("idle")
 	persistent_state.detection.connect("body_entered", self, "detected")
 	persistent_state.direction_timer.connect("timeout", self, "change_direction")
 	persistent_state.direction_timer.start()

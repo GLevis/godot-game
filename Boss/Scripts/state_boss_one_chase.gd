@@ -1,26 +1,18 @@
-# run_state.gd
+# state_chase.gd
 
 extends State
 
-class_name MeleeChaseState
+class_name BossOneChaseState
 
 
 func _ready():
 	animation_player.play("chase")
 	persistent_state.detection.connect("body_exited", self, "no_chase")
-	persistent_state.inrange.connect("body_entered", self, "in_range")
 
 
 func no_chase(_param):
 	persistent_state.player_detected = false
 
-
-	
-
-func in_range(_param):
-	for body in persistent_state.inrange.get_overlapping_bodies():
-		if body.name == "Player":
-			persistent_state.change_state("attack")
 	
 func _physics_process(_delta):
 	persistent_state.velocity = persistent_state.dir * persistent_state.speed

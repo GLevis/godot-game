@@ -6,6 +6,7 @@ var player_instance = preload("res://Player/Scenes/player.tscn")
 var treasure_instance = preload("res://Items/Treasure.tscn")
 var enemy_instance = preload("res://Enemy/Scenes/melee_enemy.tscn")
 var boss_instance = preload("res://Boss/Scenes/boss_one.tscn")
+var cloud_instance = preload("res://Enemy/Scenes/cloud_kun.tscn")
 
 var map_w = 80
 var map_h = 50
@@ -18,6 +19,7 @@ var tree = {}
 var leaves = []
 var leaf_id = 0
 var rooms = []
+var treasure_rooms = []
 
 var start_room = null
 var end_room = null
@@ -30,10 +32,6 @@ var boss
 func _ready():
 	generate()
 	
-	enemy1 = enemy_instance.instance()
-	enemy1.position.x = start_room.center.x * 32
-	enemy1.position.y = start_room.center.y * 32
-	add_child(enemy1)
 	boss = boss_instance.instance()
 	boss.position.x = end_room.center.x * 32
 	boss.position.y = end_room.center.y * 32
@@ -42,10 +40,7 @@ func _ready():
 	player.position.x = start_room.center.x * 32
 	player.position.y = start_room.center.y	* 32
 	add_child(player)
-	enemy2 = enemy_instance.instance()
-	enemy2.position.x = end_room.center.x * 32
-	enemy2.position.y = end_room.center.y * 32
-	add_child(enemy2)
+
 
 func _process(_delta):
 	pass
@@ -65,6 +60,7 @@ func generate():
 	#place_doors() TODO: REPLACE WITH SCENES
 	#purge_doors()
 	decorate()
+	spawn_enemies()
 
 func fill_bg():
 	for x in range(0, map_w):
@@ -265,6 +261,7 @@ func place_treasure():
 					treasure.position.y = room.center.y * 32
 					treasure.set_z_index(1)
 					add_child(treasure)
+					treasure_rooms.append(room)
 
 
 func check_perimeter(room_x, room_y, width, height):
@@ -373,3 +370,17 @@ func decorate():
 				set_cell(cell.x + (room.w + 1), i, Tiles.RIGHT)
 
 
+func spawn_enemies():
+	for room in rooms:
+		if room != start_room:
+			for x in range(room.x, room.x + (room.w + 1)):
+				for y in range(room.y, room.y + (room.h - 1)):
+					if get_cellv(Vector2(x,y)) == Tiles.FLOOR:
+						if chance(5):
+							var enemy 
+							if chance(50):
+								enemy = enemy_instance.instance()
+							else:
+								enemy = cloud_instance.instance()
+							enemy.position = map_to_world(Vector2(x,y)) + cell_size
+							add_child(enemy)

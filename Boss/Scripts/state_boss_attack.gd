@@ -1,15 +1,11 @@
-# attack_state.gd
+# state_attack.gd
 
 extends State
 
-class_name MeleeAttackState
+class_name BossOneAttackState
 
 func _ready():
-
 	animation_player.play("attack")
-	persistent_state.inrange.connect("body_exited", self, "out_of_range")
-	persistent_state.hitbox.connect("body_entered", self, "attackHandler")
-	persistent_state.velocity = Vector2.ZERO
 	
 func out_of_range(_param):
 	persistent_state.change_state("chase")

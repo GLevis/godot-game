@@ -26,7 +26,7 @@ radius = 3.54354
 [node name="Fireball" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 10
-contacts_reported = 5
+contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 2 )
 
@@ -35,6 +35,7 @@ rotation = 3.14159
 scale = Vector2( 0.5, -0.5 )
 texture = ExtResource( 1 )
 hframes = 3
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fire = SubResource( 1 )

@@ -1,4 +1,4 @@
-# persistent_state.gd
+# state_persistent.gd
 
 extends KinematicBody2D
 
