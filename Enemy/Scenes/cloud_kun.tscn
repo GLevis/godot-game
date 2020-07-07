@@ -150,7 +150,7 @@ scale = Vector2( 0.5, 0.6 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 19
-frame = 36
+frame = 52
 
 [node name="Sunbeam" type="Sprite" parent="Hurtbox"]
 position = Vector2( 0.5, 5.9 )
@@ -158,7 +158,7 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 19
-frame = 95
+frame = 113
 
 [node name="Detection" type="Area2D" parent="."]
 visible = false

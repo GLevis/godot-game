@@ -5,14 +5,11 @@ extends KinematicBody2D
 class_name PersistentState
 
 const scent_scene = preload("res://Player/Scenes/scent.tscn")
-const melee_weap_scene = preload("res://Items/ItemWeapon.tscn")
-const staff_weap_scene = preload("res://Items/ItemStaff.tscn")
-const fireball_scene = preload("res://Items/Scenes/Fireball.tscn")
 
 var state
 var state_factory
 var scent_trail = []
-var weapon
+var current_weapon
 var current_mouse_pos
 var fireball
 
@@ -25,9 +22,6 @@ func _ready():
 	state_factory = PlayerStateFactory.new()
 	$ScentTimer.connect("timeout", self, "add_scent")
 	change_state("idle")
-	weapon = staff_weap_scene.instance()
-	add_child(weapon)
-
 
 func add_scent():
 	var scent = scent_scene.instance()
