@@ -27,6 +27,7 @@ onready var animation_player = get_node("AnimationPlayer")
 onready var hitbox = get_node("Hitbox")
 onready var direction_timer = get_node("DirectionTimer")
 
+
 func _initialization():
 	player_detected = false
 

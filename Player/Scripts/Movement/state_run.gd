@@ -16,11 +16,9 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("move_left"):
 		persistent_state.velocity.x -= move_speed.x
 		animation_player.flip_h = true
-		persistent_state.weapon.scale = Vector2(-1, 1)
 	elif Input.is_action_pressed("move_right"):
 		animation_player.flip_h = false
 		persistent_state.velocity.x += move_speed.x
-		persistent_state.weapon.scale = Vector2(1, 1)
 		
 	if Input.is_action_pressed("move_up"):
 		persistent_state.velocity.y -= move_speed.y
@@ -32,10 +30,6 @@ func _physics_process(_delta):
 	else:
 		move_speed = Vector2(200, 200)
 	
-		
-	if Input.is_action_just_pressed("left_attack"):
-		change_state.call_func("magic")
-		
 	if abs(persistent_state.velocity.x) < min_move_speed && abs(persistent_state.velocity.y) < min_move_speed:
 		change_state.call_func("idle")
 	persistent_state.velocity.x *= friction
