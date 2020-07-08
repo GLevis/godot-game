@@ -4,7 +4,7 @@ extends State
 
 class_name RunState
 
-var move_speed = Vector2(100, 100)
+var move_speed = Vector2(200, 200)
 var min_move_speed = 0.005
 var friction = 0.32
 
@@ -28,9 +28,9 @@ func _physics_process(_delta):
 		persistent_state.velocity.y += move_speed.y
 	
 	if Input.is_action_pressed("sprint"):
-		move_speed = Vector2(250, 250)
+		move_speed = Vector2(300, 300)
 	else:
-		move_speed = Vector2(100, 100)
+		move_speed = Vector2(200, 200)
 	
 		
 	if Input.is_action_just_pressed("left_attack"):

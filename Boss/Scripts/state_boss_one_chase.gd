@@ -15,7 +15,6 @@ func no_chase(_param):
 
 	
 func _physics_process(_delta):
-	persistent_state.velocity = persistent_state.dir * persistent_state.speed
 	moveHandler()
 
 func moveHandler():

@@ -21,10 +21,16 @@ var atk = 2
 var prevHp = hp
 var hitstun = false
 
+# attacks:
+# attack 1
+const FireMove_scene = preload("res://Boss/Scenes/AttackScenes/BossAttack_FireMove.tscn")
+const FireRings_scene = preload("res://Boss/Scenes/AttackScenes/BossAttack_FireRings.tscn")
+const FireTrail_scene = preload("res://Boss/Scenes/AttackScenes/BossAttacks_FireTrail.tscn")
+
 onready var detection = get_node("Detection")
 onready var animation_player = get_node("AnimationPlayer")
 onready var hitbox = get_node("Hitbox")
-onready var direction_timer = get_node("DirectionTimer")
+onready var attack_timer = get_node("AttackTimer")
 
 func _initialization():
 	player_detected = false
