@@ -2,6 +2,8 @@ extends Node2D
 
 class_name BaseWeapon
 
+var flipped = false
+
 func left_click():
 	pass
 

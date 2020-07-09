@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Items/fireball.png" type="Texture" id=1]
-[ext_resource path="res://Items/Scenes/Fireball.gd" type="Script" id=2]
+[ext_resource path="res://Items/Spells/Fireball.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fire"
@@ -35,7 +35,6 @@ rotation = 3.14159
 scale = Vector2( 0.5, -0.5 )
 texture = ExtResource( 1 )
 hframes = 3
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fire = SubResource( 1 )
