@@ -1,0 +1,2032 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://GUI/Inventory/inventory_bg.png" type="Texture" id=1]
+[ext_resource path="res://ConnectionIi-2wj8.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://GUI/Inventory/Inventory.gd" type="Script" id=4]
+[ext_resource path="res://GUI/Inventory/staircase.png" type="Texture" id=5]
+[ext_resource path="res://GUI/Inventory/grass.png" type="Texture" id=6]
+[ext_resource path="res://GUI/Inventory/ItemButton.gd" type="Script" id=7]
+[ext_resource path="res://Items/Sword.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="Inventory" type="Control" groups=[
+"Inventory",
+]]
+anchor_left = 0.00168629
+anchor_right = 1.00169
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1280, 720 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="InventoryBackground" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 58.052
+margin_top = 60.0
+margin_right = -61.948
+margin_bottom = -60.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryElements" type="TextureRect" parent="InventoryBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 45.0
+margin_top = 45.0
+margin_right = -45.0
+margin_bottom = -45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryBackground/InventoryElements"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryHeader" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer"]
+margin_right = 1070.0
+margin_bottom = 64.0
+
+[node name="Label" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/InventoryHeader"]
+margin_top = 31.0
+margin_right = 1002.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.133333, 0.0117647, 0.247059, 1 )
+text = "Pockets"
+
+[node name="TextureButton" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/InventoryHeader"]
+margin_left = 1006.0
+margin_right = 1070.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 3 )
+
+[node name="MainElements" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer"]
+margin_top = 68.0
+margin_right = 1070.0
+margin_bottom = 508.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LeftMargin" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements"]
+margin_top = 213.0
+margin_bottom = 227.0
+
+[node name="Tabs" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements"]
+margin_left = 4.0
+margin_right = 184.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 180, 0 )
+
+[node name="Equippables" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Tabs"]
+margin_right = 180.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 180, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Equippables" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Tabs/Equippables"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Tabs/Equippables/Equippables"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Equippables"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Items" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Tabs"]
+margin_top = 74.0
+margin_right = 180.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 180, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Items" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Tabs/Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Tabs/Items/Items"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "Items"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Equippables" type="ScrollContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements"]
+margin_left = 188.0
+margin_right = 466.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 90, 70 )
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables"]
+margin_right = 266.0
+margin_bottom = 736.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EquipSlot0" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer"]
+margin_right = 266.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot0"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="itemButton" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot0/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot0/ItemBg/itemButton"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot0"]
+margin_left = 74.0
+margin_right = 266.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+valign = 1
+
+[node name="EquipSlot1" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer"]
+margin_top = 74.0
+margin_right = 266.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 70, 70 )
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot1"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="itemButton" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot1/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot1/ItemBg/itemButton"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot1"]
+margin_left = 74.0
+margin_right = 266.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+valign = 1
+
+[node name="EquipSlot2" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer"]
+margin_top = 148.0
+margin_right = 266.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 70, 70 )
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot2"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="itemButton" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot2/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot2/ItemBg/itemButton"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot2"]
+margin_left = 74.0
+margin_right = 266.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+valign = 1
+
+[node name="EquipSlot3" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer"]
+margin_top = 222.0
+margin_right = 266.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 70, 70 )
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot3"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="itemButton" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot3/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot3/ItemBg/itemButton"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot3"]
+margin_left = 74.0
+margin_right = 266.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+valign = 1
+
+[node name="EquipSlot4" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer"]
+margin_top = 296.0
+margin_right = 266.0
+margin_bottom = 366.0
+rect_min_size = Vector2( 70, 70 )
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot4"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="itemButton" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot4/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot4/ItemBg/itemButton"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot4"]
+margin_left = 74.0
+margin_right = 266.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+valign = 1
+
+[node name="EquipSlot5" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer"]
+margin_top = 370.0
+margin_right = 266.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 70, 70 )
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot5"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="itemButton" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot5/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot5/ItemBg/itemButton"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot5"]
+margin_left = 74.0
+margin_right = 266.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+valign = 1
+
+[node name="EquipSlot6" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer"]
+margin_top = 444.0
+margin_right = 266.0
+margin_bottom = 514.0
+rect_min_size = Vector2( 70, 70 )
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot6"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="itemButton" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot6/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot6/ItemBg/itemButton"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot6"]
+margin_left = 74.0
+margin_right = 266.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+valign = 1
+
+[node name="EquipSlot7" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer"]
+margin_top = 518.0
+margin_right = 266.0
+margin_bottom = 588.0
+rect_min_size = Vector2( 70, 70 )
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot7"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="itemButton" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot7/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot7/ItemBg/itemButton"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot7"]
+margin_left = 74.0
+margin_right = 266.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+valign = 1
+
+[node name="EquipSlot8" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer"]
+margin_top = 592.0
+margin_right = 266.0
+margin_bottom = 662.0
+rect_min_size = Vector2( 70, 70 )
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot8"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="itemButton" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot8/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot8/ItemBg/itemButton"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot8"]
+margin_left = 74.0
+margin_right = 266.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+valign = 1
+
+[node name="EquipSlot9" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer"]
+margin_top = 666.0
+margin_right = 266.0
+margin_bottom = 736.0
+rect_min_size = Vector2( 70, 70 )
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot9"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="itemButton" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot9/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot9/ItemBg/itemButton"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Equippables/VBoxContainer/EquipSlot9"]
+margin_left = 74.0
+margin_right = 266.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 4 )
+valign = 1
+
+[node name="Items" type="GridContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements"]
+margin_left = 470.0
+margin_right = 762.0
+margin_bottom = 440.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+columns = 4
+
+[node name="ItemSlot0" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot0"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton0" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot0/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = -31.0
+margin_right = 32.0
+margin_bottom = 31.0
+texture_normal = ExtResource( 6 )
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot0/ItemBg/ItemButton0"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot1" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 74.0
+margin_right = 144.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot1"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton1" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot1/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+texture_normal = ExtResource( 5 )
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot1/ItemBg/ItemButton1"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot2" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 148.0
+margin_right = 218.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot2"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton2" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot2/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+texture_normal = ExtResource( 8 )
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot2/ItemBg/ItemButton2"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot3" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 222.0
+margin_right = 292.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot3"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton3" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot3/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot3/ItemBg/ItemButton3"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot4" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_top = 74.0
+margin_right = 70.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot4"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton4" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot4/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot4/ItemBg/ItemButton4"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot5" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 74.0
+margin_top = 74.0
+margin_right = 144.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot5"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton5" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot5/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot5/ItemBg/ItemButton5"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot6" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 148.0
+margin_top = 74.0
+margin_right = 218.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot6"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton6" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot6/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot6/ItemBg/ItemButton6"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot7" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 222.0
+margin_top = 74.0
+margin_right = 292.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot7"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton7" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot7/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot7/ItemBg/ItemButton7"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot8" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_top = 148.0
+margin_right = 70.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot8"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton8" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot8/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot8/ItemBg/ItemButton8"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot9" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 74.0
+margin_top = 148.0
+margin_right = 144.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot9"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton9" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot9/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot9/ItemBg/ItemButton9"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot10" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 148.0
+margin_top = 148.0
+margin_right = 218.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot10"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton10" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot10/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot10/ItemBg/ItemButton10"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot11" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 222.0
+margin_top = 148.0
+margin_right = 292.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot11"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton11" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot11/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot11/ItemBg/ItemButton11"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot12" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_top = 222.0
+margin_right = 70.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot12"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton12" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot12/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot12/ItemBg/ItemButton12"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot13" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 74.0
+margin_top = 222.0
+margin_right = 144.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot13"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton13" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot13/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot13/ItemBg/ItemButton13"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot14" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 148.0
+margin_top = 222.0
+margin_right = 218.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot14"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton14" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot14/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot14/ItemBg/ItemButton14"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot15" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 222.0
+margin_top = 222.0
+margin_right = 292.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot15"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton15" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot15/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot15/ItemBg/ItemButton15"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot16" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_top = 296.0
+margin_right = 70.0
+margin_bottom = 366.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot16"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton16" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot16/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot16/ItemBg/ItemButton16"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot17" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 74.0
+margin_top = 296.0
+margin_right = 144.0
+margin_bottom = 366.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot17"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton17" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot17/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot17/ItemBg/ItemButton17"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot18" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 148.0
+margin_top = 296.0
+margin_right = 218.0
+margin_bottom = 366.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot18"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton18" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot18/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot18/ItemBg/ItemButton18"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot19" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 222.0
+margin_top = 296.0
+margin_right = 292.0
+margin_bottom = 366.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot19"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton19" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot19/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot19/ItemBg/ItemButton19"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot20" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_top = 370.0
+margin_right = 70.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot20"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton20" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot20/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot20/ItemBg/ItemButton20"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot21" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 74.0
+margin_top = 370.0
+margin_right = 144.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot21"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton21" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot21/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot21/ItemBg/ItemButton21"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot22" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 148.0
+margin_top = 370.0
+margin_right = 218.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot22"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton22" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot22/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot22/ItemBg/ItemButton22"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlot23" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items" groups=[
+"InventorySlot",
+]]
+margin_left = 222.0
+margin_top = 370.0
+margin_right = 292.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 70, 70 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemBg" type="TextureRect" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot23"]
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="ItemButton23" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot23/ItemBg" groups=[
+"ItemButton",
+]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.0
+margin_top = -31.0
+margin_right = 31.0
+margin_bottom = 31.0
+expand = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="ItemCount" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot23/ItemBg/ItemButton23"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -62.0
+margin_top = -35.0
+rect_min_size = Vector2( 62, 35 )
+custom_fonts/font = SubResource( 3 )
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemInspector" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements"]
+margin_left = 766.0
+margin_right = 1066.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 300, 0 )
+
+[node name="ItemInspector" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector"]
+margin_right = 300.0
+margin_bottom = 312.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector"]
+margin_right = 300.0
+margin_bottom = 2.0
+custom_fonts/font = SubResource( 5 )
+text = "ItemInspector"
+align = 1
+valign = 1
+
+[node name="Stats" type="VBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector"]
+margin_top = 6.0
+margin_right = 300.0
+margin_bottom = 14.0
+
+[node name="AtkValues" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector/Stats"]
+margin_right = 300.0
+margin_bottom = 2.0
+
+[node name="StatName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector/Stats/AtkValues"]
+margin_right = 148.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "Atk"
+
+[node name="StatStat" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector/Stats/AtkValues"]
+margin_left = 152.0
+margin_right = 300.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "800"
+
+[node name="DefValues" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector/Stats"]
+margin_top = 6.0
+margin_right = 300.0
+margin_bottom = 8.0
+
+[node name="StatName" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector/Stats/DefValues"]
+margin_right = 148.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "Atk"
+
+[node name="StatStat" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/ItemInspector/Stats/DefValues"]
+margin_left = 152.0
+margin_right = 300.0
+margin_bottom = 2.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "800"
+
+[node name="Margin" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector"]
+margin_top = 316.0
+margin_right = 300.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="Buttons" type="HBoxContainer" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector"]
+margin_top = 340.0
+margin_right = 300.0
+margin_bottom = 440.0
+
+[node name="TrashCan" type="TextureButton" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements/ItemInspector/Buttons"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="RightMargin" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer/MainElements"]
+margin_left = 1070.0
+margin_top = 213.0
+margin_right = 1070.0
+margin_bottom = 227.0
+
+[node name="BottomMargin" type="Label" parent="InventoryBackground/InventoryElements/VBoxContainer"]
+margin_top = 512.0
+margin_right = 1070.0
+margin_bottom = 526.0
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot0/ItemBg/ItemButton0" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot0/ItemBg/ItemButton0" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot1/ItemBg/ItemButton1" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot1/ItemBg/ItemButton1" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot2/ItemBg/ItemButton2" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot2/ItemBg/ItemButton2" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot3/ItemBg/ItemButton3" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot3/ItemBg/ItemButton3" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot4/ItemBg/ItemButton4" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot4/ItemBg/ItemButton4" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot5/ItemBg/ItemButton5" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot5/ItemBg/ItemButton5" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot6/ItemBg/ItemButton6" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot6/ItemBg/ItemButton6" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot7/ItemBg/ItemButton7" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot7/ItemBg/ItemButton7" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot8/ItemBg/ItemButton8" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot8/ItemBg/ItemButton8" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot9/ItemBg/ItemButton9" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot9/ItemBg/ItemButton9" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot10/ItemBg/ItemButton10" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot10/ItemBg/ItemButton10" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot11/ItemBg/ItemButton11" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot11/ItemBg/ItemButton11" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot12/ItemBg/ItemButton12" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot12/ItemBg/ItemButton12" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot13/ItemBg/ItemButton13" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot13/ItemBg/ItemButton13" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot14/ItemBg/ItemButton14" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot14/ItemBg/ItemButton14" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot15/ItemBg/ItemButton15" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot15/ItemBg/ItemButton15" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot16/ItemBg/ItemButton16" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot16/ItemBg/ItemButton16" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot17/ItemBg/ItemButton17" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot17/ItemBg/ItemButton17" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot18/ItemBg/ItemButton18" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot18/ItemBg/ItemButton18" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot19/ItemBg/ItemButton19" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot19/ItemBg/ItemButton19" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot20/ItemBg/ItemButton20" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot20/ItemBg/ItemButton20" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot21/ItemBg/ItemButton21" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot21/ItemBg/ItemButton21" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot22/ItemBg/ItemButton22" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot22/ItemBg/ItemButton22" method="_on_ItemButton_button_up"]
+[connection signal="button_up" from="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot23/ItemBg/ItemButton23" to="InventoryBackground/InventoryElements/VBoxContainer/MainElements/Items/ItemSlot23/ItemBg/ItemButton23" method="_on_ItemButton_button_up"]
