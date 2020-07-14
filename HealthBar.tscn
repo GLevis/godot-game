@@ -5,10 +5,10 @@
 
 [node name="HealthBar" type="TextureProgress"]
 anchor_right = 0.062
-anchor_bottom = 1.067
-margin_right = 0.511997
-margin_bottom = -0.200012
-value = 50.0
+anchor_bottom = 0.889
+margin_right = 0.639999
+margin_bottom = -0.0800171
+value = 100.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 1 )
 fill_mode = 3
