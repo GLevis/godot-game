@@ -136,7 +136,7 @@ points = PoolVector2Array( 0, 0, -5, 5, 4.8, 5, 1.5, 0 )
 
 [sub_resource type="CircleShape2D" id=9]
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="CloudEnemy" type="KinematicBody2D"]
 collision_layer = 8
 collision_mask = 7
 script = ExtResource( 2 )
@@ -150,7 +150,7 @@ scale = Vector2( 0.5, 0.6 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 19
-frame = 52
+frame = 89
 
 [node name="Sunbeam" type="Sprite" parent="Hurtbox"]
 position = Vector2( 0.5, 5.9 )
@@ -158,17 +158,16 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 19
-frame = 113
+frame = 108
 
 [node name="Detection" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 shape = SubResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
 enabled = true
+collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack = SubResource( 3 )
@@ -178,17 +177,14 @@ anims/detected = SubResource( 6 )
 anims/idle = SubResource( 7 )
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 16
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( -1.034, 0.716 )
+position = Vector2( -1.034, 0.9 )
 shape = SubResource( 8 )
-disabled = true
 
 [node name="InRange" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InRange"]
 shape = SubResource( 9 )

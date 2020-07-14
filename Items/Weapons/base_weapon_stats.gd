@@ -11,7 +11,7 @@ export(int) var physical_pen
 export(int) var magic_pen
 export(int) var price
  
-func _init(p_item_name = [], p_physical_atk = 0, p_physical_def = 0, p_magic_atk = 0, p_magic_def = 0, p_knockback = 0, p_magic_type = [], p_physical_pen = 0, p_magic_pen = 0, p_price = 0):
+func _init(p_item_name = "", p_physical_atk = 0, p_physical_def = 0, p_magic_atk = 0, p_magic_def = 0, p_knockback = 0, p_magic_type = [], p_physical_pen = 0, p_magic_pen = 0, p_price = 0):
 	item_name = p_item_name
 	physical_atk = p_physical_atk
 	physical_def = p_physical_def

@@ -13,6 +13,7 @@ var dir = Vector2.ZERO
 var knockdir = Vector2.ZERO
 var idle_speed = Vector2(30, 30)
 var speed = Vector2(70, 70)
+var direction = RandomNumberGenerator.new()
 
 var velocity = Vector2()
 

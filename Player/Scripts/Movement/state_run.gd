@@ -16,8 +16,10 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("move_left"):
 		persistent_state.velocity.x -= move_speed.x
 		animation_player.flip_h = true
+		persistent_state.current_weapon.flipped = true
 	elif Input.is_action_pressed("move_right"):
 		animation_player.flip_h = false
+		persistent_state.current_weapon.flipped = false
 		persistent_state.velocity.x += move_speed.x
 		
 	if Input.is_action_pressed("move_up"):
