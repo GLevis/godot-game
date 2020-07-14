@@ -11,6 +11,14 @@ func _ready():
 	persistent_state.animation_player.play("idle")
 	persistent_state.player_detected = false
 	persistent_state.hitstun = false
+	
+	# clears attacks:
+	for i in persistent_state.attackArray.size() / 2:
+		yield(get_tree().create_timer(1.6), "timeout")
+		persistent_state.attackArray[0].queue_free()
+		persistent_state.attackArray[1].queue_free()
+		persistent_state.attackArray.remove(0)
+		persistent_state.attackArray.remove(0)
 
 func detected(_param):
 	for body in persistent_state.detection.get_overlapping_bodies():

@@ -20,6 +20,9 @@ var hp = 50
 var atk = 2
 var prevHp = hp
 var hitstun = false
+var attackCounter = 0
+
+var attackArray = []
 
 # attacks:
 # attack 1

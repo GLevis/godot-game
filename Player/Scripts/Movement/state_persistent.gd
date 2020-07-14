@@ -40,6 +40,6 @@ func change_state(new_state_name):
 	if state != null:
 		state.queue_free()
 	state = state_factory.get_state(new_state_name).new()
-	state.setup(funcref(self, "change_state"), $AnimatedSprite, self)
+	state.setup(funcref(self, "change_state"), $AnimationPlayer, self)
 	state.name = "current_state"
 	add_child(state)
