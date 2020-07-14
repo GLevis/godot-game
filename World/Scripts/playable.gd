@@ -28,7 +28,7 @@ var player
 var enemy1
 var enemy2
 var boss
-
+signal done
 func _ready():
 	generate()
 	
@@ -40,7 +40,7 @@ func _ready():
 	player.position.x = start_room.center.x * 32
 	player.position.y = start_room.center.y	* 32
 	add_child(player)
-
+	emit_signal("done")
 
 func _process(_delta):
 	pass

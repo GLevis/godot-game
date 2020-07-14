@@ -19,14 +19,17 @@ func moveHandler():
 	
 func attack1():
 	var look = persistent_state.get_node("RayCast2D")
-	var player_pos = persistent_state.target.position - persistent_state.position
-	look.cast_to = (player_pos)
+	var prev_pos = persistent_state.target.position - persistent_state.position
+	look.cast_to = (prev_pos)
 	look.force_raycast_update()
-	
+	yield(get_tree().create_timer(1), "timeout")
 	var FireRings = persistent_state.FireRings_scene.instance()
 	var FireMove = persistent_state.FireMove_scene.instance()
-	FireRings.position = player_pos
-	FireMove.position = player_pos
+	var player_pos = persistent_state.target.position - persistent_state.position
+	var difference_pos = player_pos - prev_pos
+	var predicted_pos = player_pos + (difference_pos / Vector2(2,2))
+	FireRings.position = predicted_pos
+	FireMove.position = predicted_pos
 	persistent_state.add_child(FireRings)
 	persistent_state.add_child(FireMove)
 	FireRings.get_node("AnimationPlayer").play("Rings")
