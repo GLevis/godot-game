@@ -3,11 +3,8 @@ extends Panel;
 const ItemClass = preload("res://GUI/Inventory/New Inv/Item.gd");
 const ItemSlotClass = preload("res://GUI/Inventory/New Inv/ItemSlot.gd");
 const TooltipClass = preload("res://GUI/Inventory/New Inv/Tooltip.gd");
-<<<<<<< HEAD
-
-=======
 const weaponScene = preload("res://Items/Weapons/BasicSword.tscn"); 
->>>>>>> combat
+#>>>>>>> combat
 const MAX_SLOTS = 45;
 
 const itemImages = [
@@ -22,13 +19,13 @@ const itemImages = [
 	preload("res://GUI/Inventory/New Inv/images/Ac_Necklace03.png"),
 ];
 
-<<<<<<< HEAD
-const itemDictionary = {
-=======
+#<<<<<<< HEAD
+#const itemDictionary = {
+#=======
 var weapon = weaponScene.instance()
 
 var itemDictionary = {
->>>>>>> combat
+#>>>>>>> combat
 	0: {
 		"itemName": "Ring",
 		"itemValue": 456,
@@ -70,9 +67,9 @@ var itemDictionary = {
 		"itemValue": 756,
 		"itemIcon": itemImages[8],
 		"slotType": Global.SlotType.SLOT_NECK
-<<<<<<< HEAD
+#<<<<<<< HEAD
 	}
-=======
+#=======
 	}#,
 #	7: {
 #		"itemName": weapon.stats.item_name,
@@ -80,8 +77,8 @@ var itemDictionary = {
 #		"itemIcon": itemImages[7],
 #		"slotType": Global.SlotType.SLOT_RHAND
 #	}
->>>>>>> combat
-};
+#>>>>>>> combat
+#};
 
 var slotList = Array();
 
@@ -100,8 +97,8 @@ func _ready():
 		slot.connect("gui_input", self, "slot_gui_input", [slot]);
 		slotList.append(slot);
 		slots.add_child(slot);
-<<<<<<< HEAD
-=======
+#<<<<<<< HEAD
+#=======
 	weapon._init("weaponName", 6, 9, 4, 2, 0, null, 6, 8, 69420)
 	itemDictionary[7] = {
 		"itemName": weapon.stats.item_name,
@@ -109,7 +106,7 @@ func _ready():
 		"itemIcon": itemImages[7],
 		"slotType": Global.SlotType.SLOT_RHAND
 	}
->>>>>>> combat
+#>>>>>>> combat
 
 	for i in range(10):
 		if i == 0:

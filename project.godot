@@ -9,10 +9,95 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "BaseWeapon",
+"language": "GDScript",
+"path": "res://Items/base_weapon.gd"
+}, {
+"base": "State",
+"class": "BossOneAttackState",
+"language": "GDScript",
+"path": "res://Boss/Scripts/state_boss_attack.gd"
+}, {
+"base": "State",
+"class": "BossOneChaseState",
+"language": "GDScript",
+"path": "res://Boss/Scripts/state_boss_one_chase.gd"
+}, {
+"base": "State",
+"class": "BossOneIdleState",
+"language": "GDScript",
+"path": "res://Boss/Scripts/state_boss_one_idle.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "BossOnePersistentState",
+"language": "GDScript",
+"path": "res://Boss/Scripts/state_boss_one_persistent.gd"
+}, {
+"base": "Reference",
+"class": "BossOneStateFactory",
+"language": "GDScript",
+"path": "res://Boss/Scripts/state_boss_one_factory.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Fireball",
+"language": "GDScript",
+"path": "res://Items/Spells/Fireball.gd"
+}, {
+"base": "Node",
+"class": "Global",
+"language": "GDScript",
+"path": "res://GUI/Inventory/New Inv/Global.gd"
+}, {
 "base": "State",
 "class": "IdleState",
 "language": "GDScript",
 "path": "res://Player/Scripts/Movement/state_idle.gd"
+}, {
+"base": "Area2D",
+"class": "ItemWeapon",
+"language": "GDScript",
+"path": "res://Items/ItemWeapon.gd"
+}, {
+"base": "State",
+"class": "MagicState",
+"language": "GDScript",
+"path": "res://Player/Scripts/Movement/state_magic.gd"
+}, {
+"base": "State",
+"class": "MeleeAttackState",
+"language": "GDScript",
+"path": "res://Enemy/Scripts/state_melee_attack.gd"
+}, {
+"base": "State",
+"class": "MeleeChaseState",
+"language": "GDScript",
+"path": "res://Enemy/Scripts/state_melee_chase.gd"
+}, {
+"base": "State",
+"class": "MeleeHitstunState",
+"language": "GDScript",
+"path": "res://Enemy/Scripts/state_hitstun.gd"
+}, {
+"base": "State",
+"class": "MeleeIdleState",
+"language": "GDScript",
+"path": "res://Enemy/Scripts/state_melee_idle.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "MeleePersistentState",
+"language": "GDScript",
+"path": "res://Enemy/Scripts/state_melee_persistent.gd"
+}, {
+"base": "State",
+"class": "MeleeState",
+"language": "GDScript",
+"path": "res://Player/Scripts/Movement/state_melee.gd"
+}, {
+"base": "Reference",
+"class": "MeleeStateFactory",
+"language": "GDScript",
+"path": "res://Enemy/Scripts/state_melee_factory.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "PersistentState",
@@ -24,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://World/Scripts/playable.gd"
 }, {
+"base": "Reference",
+"class": "PlayerStateFactory",
+"language": "GDScript",
+"path": "res://Player/Scripts/Movement/state_factory.gd"
+}, {
 "base": "State",
 "class": "RunState",
 "language": "GDScript",
@@ -32,27 +122,44 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "State",
 "language": "GDScript",
-"path": "res://Player/Scripts/Movement/base_move.gd"
-}, {
-"base": "Reference",
-"class": "StateFactory",
-"language": "GDScript",
-"path": "res://Player/Scripts/Movement/state_factory.gd"
+"path": "res://state.gd"
 } ]
 _global_script_class_icons={
+"BaseWeapon": "",
+"BossOneAttackState": "",
+"BossOneChaseState": "",
+"BossOneIdleState": "",
+"BossOnePersistentState": "",
+"BossOneStateFactory": "",
+"Fireball": "",
+"Global": "",
 "IdleState": "",
+"ItemWeapon": "",
+"MagicState": "",
+"MeleeAttackState": "",
+"MeleeChaseState": "",
+"MeleeHitstunState": "",
+"MeleeIdleState": "",
+"MeleePersistentState": "",
+"MeleeState": "",
+"MeleeStateFactory": "",
 "PersistentState": "",
 "Playable": "",
+"PlayerStateFactory": "",
 "RunState": "",
-"State": "",
-"StateFactory": ""
+"State": ""
 }
 
 [application]
 
 config/name="final-june"
-run/main_scene="res://main.tscn"
+run/main_scene="res://GUI/Inventory/New Inv/Inventory.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
 
 [input]
 
@@ -79,6 +186,11 @@ move_down={
 sprint={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
+ ]
+}
+left_attack={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
 
