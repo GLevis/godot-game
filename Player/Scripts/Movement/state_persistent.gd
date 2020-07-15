@@ -5,6 +5,8 @@ extends KinematicBody2D
 class_name PersistentState
 
 const scent_scene = preload("res://Player/Scenes/scent.tscn")
+const weapon_scene = preload("res://Items/Weapons/BasicStaff.tscn")
+const inventory_scene = preload("res://GUI/Inventory/New Inv/Inventory.tscn")
 
 var state
 var state_factory
@@ -18,23 +20,37 @@ var velocity = Vector2()
 var hp = 20
 var prevHp = hp
 
+var inventory = inventory_scene.instance()
+var inventoryToggled = false
+
 func _ready():
 	state_factory = PlayerStateFactory.new()
 	$ScentTimer.connect("timeout", self, "add_scent")
 	change_state("idle")
+	current_weapon = weapon_scene.instance()
+	current_weapon._init("Basic Staff", 1, 0, 0, 0, 1, null, 0, 0, 1)
+	add_child(current_weapon)
+
 
 func add_scent():
 	var scent = scent_scene.instance()
 	scent.player = self
 	scent.position = self.position
 	scent_trail.push_front(scent)
-	
+
 
 func _process(_delta):
 	if prevHp > hp:
-		print(hp)
 		prevHp = hp
-	
+	if Input.is_action_just_pressed("left_attack"):
+		current_weapon.left_click()
+	if Input.is_action_just_pressed("inventory"):
+		if inventoryToggled == false:
+			add_child(inventory)
+			inventoryToggled = true
+		elif inventoryToggled == true:
+			remove_child(inventory)
+			inventoryToggled = false
 
 func change_state(new_state_name):
 	if state != null:
