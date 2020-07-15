@@ -26,6 +26,8 @@ func attack1():
 	look.cast_to = (player_pos)
 	look.force_raycast_update()
 	
+	#drawTrail(player_pos)
+	
 	var FireRings = persistent_state.FireRings_scene.instance()
 	var FireMove = persistent_state.FireMove_scene.instance()
 	FireRings.position = player_pos
@@ -44,6 +46,20 @@ func attack1():
 	
 	persistent_state.attackCounter += 1
 
+func drawTrail(target):
+	var currentPos = persistent_state.position - persistent_state.position
+	var interval = (persistent_state.position - target) / 10
+	print("1. " + str(currentPos - currentPos))
+	print("2. " + str(target))
+	
+	while currentPos < target:
+			print("while loop")
+			var FireTrail = persistent_state.FireTrail_scene.instance()
+			FireTrail.position = currentPos + interval
+			persistent_state.add_child(FireTrail)
+			FireTrail.get_node("AnimationPlayer").play("FireTrail")
+			currentPos = currentPos + interval
+
 func clear_attacks():
 	yield(get_tree().create_timer(1.6), "timeout")
 	persistent_state.attackArray[0].queue_free()
@@ -52,5 +68,5 @@ func clear_attacks():
 	persistent_state.attackArray.remove(0)
 	if persistent_state.attackArray.empty():
 		pass
-	print(persistent_state.attackArray)
+	
 	

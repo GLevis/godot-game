@@ -28,7 +28,7 @@ var attackArray = []
 # attack 1
 const FireMove_scene = preload("res://Boss/Scenes/AttackScenes/BossAttack_FireMove.tscn")
 const FireRings_scene = preload("res://Boss/Scenes/AttackScenes/BossAttack_FireRings.tscn")
-const FireTrail_scene = preload("res://Boss/Scenes/AttackScenes/BossAttacks_FireTrail.tscn")
+const FireTrail_scene = preload("res://Boss/Scenes/AttackScenes/BossAttack_FireTrail.tscn")
 
 onready var detection = get_node("Detection")
 onready var animation_player = get_node("AnimationPlayer")
