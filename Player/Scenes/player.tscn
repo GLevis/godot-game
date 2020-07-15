@@ -216,7 +216,7 @@ current = true
 zoom = Vector2( 0.23, 0.23 )
 
 [node name="ScentTimer" type="Timer" parent="."]
-wait_time = 0.005
+wait_time = 0.1
 autostart = true
 
 [node name="RotationAxis" type="Position2D" parent="."]
