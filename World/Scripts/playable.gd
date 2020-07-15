@@ -383,4 +383,6 @@ func spawn_enemies():
 							else:
 								enemy = cloud_instance.instance()
 							enemy.position = map_to_world(Vector2(x,y)) + cell_size
+							randomize()
+							enemy.direction.set_seed(randi())
 							add_child(enemy)

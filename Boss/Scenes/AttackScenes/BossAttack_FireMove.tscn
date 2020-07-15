@@ -33,7 +33,6 @@ tracks/1/keys = {
 }
 
 [node name="FireRings" type="Area2D"]
-z_index = 2
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0 )
