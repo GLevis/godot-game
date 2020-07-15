@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/Sprites/main_character_spritesheet_version_one.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Movement/state_persistent.gd" type="Script" id=2]
@@ -7,7 +7,21 @@
 extents = Vector2( 4.56837, 14.5639 )
 
 [sub_resource type="Animation" id=2]
-resource_name = "run_down"
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 0.7
 loop = true
 step = 0.05
@@ -24,8 +38,7 @@ tracks/0/keys = {
 "values": [ 32, 39 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "run_left"
+[sub_resource type="Animation" id=4]
 length = 0.7
 loop = true
 step = 0.05
@@ -54,8 +67,7 @@ tracks/1/keys = {
 "values": [ Vector2( -1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "run_right"
+[sub_resource type="Animation" id=5]
 length = 0.7
 loop = true
 step = 0.05
@@ -84,8 +96,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "run_up"
+[sub_resource type="Animation" id=6]
 length = 0.7
 loop = true
 step = 0.05
@@ -102,8 +113,7 @@ tracks/0/keys = {
 "values": [ 40, 47 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "walk_down"
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -118,8 +128,7 @@ tracks/0/keys = {
 "values": [ 0, 7 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "walk_left"
+[sub_resource type="Animation" id=8]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -146,8 +155,7 @@ tracks/1/keys = {
 "values": [ Vector2( -1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "walk_right"
+[sub_resource type="Animation" id=9]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -174,8 +182,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "walk_up"
+[sub_resource type="Animation" id=10]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -198,7 +205,7 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 vframes = 15
 hframes = 8
-frame = 24
+frame = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.584219, 1.45949 )
@@ -218,11 +225,12 @@ autostart = true
 position = Vector2( 2.349, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/run_down = SubResource( 2 )
-anims/run_left = SubResource( 3 )
-anims/run_right = SubResource( 4 )
-anims/run_up = SubResource( 5 )
-anims/walk_down = SubResource( 6 )
-anims/walk_left = SubResource( 7 )
-anims/walk_right = SubResource( 8 )
-anims/walk_up = SubResource( 9 )
+anims/idle = SubResource( 2 )
+anims/run_down = SubResource( 3 )
+anims/run_left = SubResource( 4 )
+anims/run_right = SubResource( 5 )
+anims/run_up = SubResource( 6 )
+anims/walk_down = SubResource( 7 )
+anims/walk_left = SubResource( 8 )
+anims/walk_right = SubResource( 9 )
+anims/walk_up = SubResource( 10 )
