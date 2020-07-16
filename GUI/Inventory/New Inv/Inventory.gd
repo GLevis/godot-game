@@ -141,19 +141,31 @@ func slot_gui_input(event : InputEvent, slot : ItemSlotClass):
 							slot.equipItem(holdingItem, false);
 							holdingItem = tempItem;
 				elif slot.item:
+					
 					var tempItem = slot.item;
 					slot.pickItem();
 					tempItem.rect_global_position = event.global_position - itemOffset;
 					slot.putItem(holdingItem);
+					slot.item.isEquipped = true
 					holdingItem = tempItem;
-				else:
-					slot.putItem(holdingItem);
+				else:		
+					slot.equipItem(holdingItem, false);
+					slot.item.isEquipped = true
 					holdingItem = null;
 			elif slot.item:
 				holdingItem = slot.item;
 				itemOffset = event.global_position - holdingItem.rect_global_position;
 				slot.pickItem();
 				holdingItem.rect_global_position = event.global_position - itemOffset;
+				
+				
+				
+				
+				
+				
+				
+				
+				
 		elif event.button_index == BUTTON_RIGHT && !event.pressed:
 			if slot.slotType != Global.SlotType.SLOT_DEFAULT:
 				if slot.item:
@@ -166,40 +178,53 @@ func slot_gui_input(event : InputEvent, slot : ItemSlotClass):
 				if slot.item:
 					var itemSlotType = slot.item.slotType;
 					var panelSlot = characterPanel.getSlotByType(slot.item.slotType);
-					if itemSlotType == Global.SlotType.SLOT_RING:
-						if panelSlot[0].item && panelSlot[1].item:
-							var panelItem = panelSlot[0].item;
-							panelSlot[0].removeItem();
-							var slotItem = slot.item;
-							slot.removeItem();
-							slot.setItem(panelItem);
-							panelSlot[0].setItem(slotItem);
-							pass
-						elif !panelSlot[0].item && panelSlot[1].item || !panelSlot[0].item && !panelSlot[1].item:
-							var tempItem = slot.item;
-							slot.removeItem();
-							panelSlot[0].equipItem(tempItem);
-						elif panelSlot[0].item && !panelSlot[1].item:
-							var tempItem = slot.item;
-							slot.removeItem();
-							panelSlot[1].equipItem(tempItem);
-							pass
-					else:
-						if panelSlot.item:
-							var panelItem = panelSlot.item;
-							panelSlot.removeItem();
-							var slotItem = slot.item;
-							slot.removeItem();
-							slot.setItem(panelItem);
-							panelSlot.setItem(slotItem);
+					
+					if slot.item.isEquipped == false:
+						if itemSlotType == Global.SlotType.SLOT_RING:
+							if panelSlot[0].item && panelSlot[1].item:
+								var panelItem = panelSlot[0].item;
+								panelSlot[0].removeItem();
+								var slotItem = slot.item;
+								slot.removeItem();
+								slot.setItem(panelItem);
+								panelSlot[0].setItem(slotItem);
+								panelSlot[0].item.isEquipped = true
+								pass
+							elif !panelSlot[0].item && panelSlot[1].item || !panelSlot[0].item && !panelSlot[1].item:
+								var tempItem = slot.item;
+								slot.removeItem();
+								panelSlot[0].equipItem(tempItem);
+								panelSlot[0].item.isEquipped = true
+							elif panelSlot[0].item && !panelSlot[1].item:
+								var tempItem = slot.item;
+								slot.removeItem();
+								panelSlot[1].equipItem(tempItem);
+								panelSlot[1].item.isEquipped = true
+								pass
 						else:
-							var tempItem = slot.item;
-							slot.removeItem();
-							panelSlot.equipItem(tempItem);
+							if panelSlot.item:
+								var panelItem = panelSlot.item;
+								panelSlot.removeItem();
+								var slotItem = slot.item;
+								slot.removeItem();
+								slot.setItem(panelItem);
+								panelSlot.setItem(slotItem);
+								panelSlot.item.isEquipped = true
+							else:
+								var tempItem = slot.item;
+								slot.removeItem();
+								panelSlot.equipItem(tempItem);
+								panelSlot.item.isEquipped = true
+					else:
+						var freeSlot = getFreeSlot()
+						var tempItem = slot.item
+						slot.removeItem()
+						freeSlot.equipItem(tempItem)
+						freeSlot.item.isEquipped = false
 
 func _input(event : InputEvent):
 	if holdingItem && holdingItem.picked:
-		holdingItem.rect_global_position = event.global_position - itemOffset;
+		holdingItem.rect_global_position = get_viewport().get_mouse_position();
 
 func getFreeSlot():
 	for slot in slotList:

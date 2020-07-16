@@ -7,6 +7,7 @@ var itemSlot;
 var slotType;
 var picked = false;
 var rarity = 0;
+var isEquipped = false
 
 var rng = RandomNumberGenerator.new()
 
