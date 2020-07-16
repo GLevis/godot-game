@@ -46,10 +46,10 @@ func _process(_delta):
 		current_weapon.left_click()
 	if Input.is_action_just_pressed("inventory"):
 		if inventoryToggled == false:
-			add_child(inventory)
+			$CanvasLayer.add_child(inventory)
 			inventoryToggled = true
 		elif inventoryToggled == true:
-			remove_child(inventory)
+			$CanvasLayer.remove_child(inventory)
 			inventoryToggled = false
 
 func change_state(new_state_name):

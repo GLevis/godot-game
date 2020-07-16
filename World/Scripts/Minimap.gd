@@ -20,7 +20,7 @@ func _ready():
 				hidden_tiles.append(Vector2(x,y))
 
 func _process(_delta):
-	position = tilemap.player.position - Vector2(210, 120)
+	#position = tilemap.player.position - Vector2(210, 120)
 	player_pos = Vector2(tilemap.player.position.x / 32, tilemap.player.position.y / 32)
 	if player_pos != current_pos:
 		set_cellv(current_pos, 1)

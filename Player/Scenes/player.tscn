@@ -234,3 +234,5 @@ anims/walk_down = SubResource( 7 )
 anims/walk_left = SubResource( 8 )
 anims/walk_right = SubResource( 9 )
 anims/walk_up = SubResource( 10 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
