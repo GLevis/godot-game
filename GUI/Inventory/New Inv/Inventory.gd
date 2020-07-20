@@ -133,6 +133,7 @@ func slot_gui_input(event : InputEvent, slot : ItemSlotClass):
 					if canEquip(holdingItem, slot):
 						if !slot.item:
 							slot.equipItem(holdingItem, false);
+							slot.item.isEquipped = true
 							holdingItem = null;
 						else:
 							var tempItem = slot.item;
@@ -140,6 +141,7 @@ func slot_gui_input(event : InputEvent, slot : ItemSlotClass):
 							tempItem.rect_global_position = event.global_position - itemOffset;
 							slot.equipItem(holdingItem, false);
 							holdingItem = tempItem;
+							holdingItem.item.isEquipped = false
 				elif slot.item:
 					
 					var tempItem = slot.item;
@@ -150,7 +152,7 @@ func slot_gui_input(event : InputEvent, slot : ItemSlotClass):
 					holdingItem = tempItem;
 				else:		
 					slot.equipItem(holdingItem, false);
-					slot.item.isEquipped = true
+					slot.item.isEquipped = false
 					holdingItem = null;
 			elif slot.item:
 				holdingItem = slot.item;
@@ -179,6 +181,7 @@ func slot_gui_input(event : InputEvent, slot : ItemSlotClass):
 								slot.removeItem();
 								slot.setItem(panelItem);
 								panelSlot[0].setItem(slotItem);
+								slot.item.isEquipped = false
 								panelSlot[0].item.isEquipped = true
 								pass
 							elif !panelSlot[0].item && panelSlot[1].item || !panelSlot[0].item && !panelSlot[1].item:
@@ -200,6 +203,7 @@ func slot_gui_input(event : InputEvent, slot : ItemSlotClass):
 								slot.removeItem();
 								slot.setItem(panelItem);
 								panelSlot.setItem(slotItem);
+								slot.item.isEquipped = false
 								panelSlot.item.isEquipped = true
 							else:
 								var tempItem = slot.item;
@@ -209,9 +213,10 @@ func slot_gui_input(event : InputEvent, slot : ItemSlotClass):
 					else:
 						var freeSlot = getFreeSlot()
 						var tempItem = slot.item
-						slot.removeItem()
-						freeSlot.equipItem(tempItem)
-						freeSlot.item.isEquipped = false
+						if freeSlot:
+							slot.removeItem()
+							freeSlot.equipItem(tempItem)
+							freeSlot.item.isEquipped = false
 
 func _input(event : InputEvent):
 	if holdingItem && holdingItem.picked:
