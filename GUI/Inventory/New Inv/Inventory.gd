@@ -156,16 +156,7 @@ func slot_gui_input(event : InputEvent, slot : ItemSlotClass):
 				holdingItem = slot.item;
 				itemOffset = event.global_position - holdingItem.rect_global_position;
 				slot.pickItem();
-				holdingItem.rect_global_position = event.global_position - itemOffset;
-				
-				
-				
-				
-				
-				
-				
-				
-				
+				holdingItem.rect_global_position = event.global_position - itemOffset;		
 		elif event.button_index == BUTTON_RIGHT && !event.pressed:
 			if slot.slotType != Global.SlotType.SLOT_DEFAULT:
 				if slot.item:
