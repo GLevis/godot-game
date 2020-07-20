@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/Sprites/main_character_spritesheet_version_one.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Movement/state_persistent.gd" type="Script" id=2]
+[ext_resource path="res://HealthBar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.56837, 14.5639 )
@@ -212,6 +213,7 @@ position = Vector2( -0.584219, 1.45949 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+current = true
 zoom = Vector2( 0.23, 0.23 )
 
 [node name="ScentTimer" type="Timer" parent="."]
@@ -235,3 +237,6 @@ anims/walk_right = SubResource( 9 )
 anims/walk_up = SubResource( 10 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource( 3 )]
+margin_top = 418.0

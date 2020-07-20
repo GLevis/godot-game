@@ -17,11 +17,14 @@ var fireball
 
 var velocity = Vector2()
 
+var max_hp = 20
 var hp = 20
 var prevHp = hp
 
 var inventory = inventory_scene.instance()
 var inventoryToggled = false
+
+onready var health_bar = get_node("CanvasLayer/HealthBar")
 
 func _ready():
 	state_factory = PlayerStateFactory.new()
@@ -51,6 +54,7 @@ func _process(_delta):
 		elif inventoryToggled == true:
 			$CanvasLayer.remove_child(inventory)
 			inventoryToggled = false
+	health_bar.value = ( health_bar.max_value * hp ) / max_hp
 
 func change_state(new_state_name):
 	if state != null:
