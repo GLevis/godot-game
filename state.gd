@@ -7,6 +7,7 @@ class_name State
 var change_state
 var animation_player
 var persistent_state
+var run_state
 var velocity
 var left_pressed = false
 
@@ -19,3 +20,4 @@ func setup(change_state, animation_player, persistent_state):
 	self.change_state = change_state
 	self.animation_player = animation_player
 	self.persistent_state = persistent_state
+
