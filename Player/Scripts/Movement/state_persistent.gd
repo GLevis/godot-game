@@ -14,6 +14,7 @@ var scent_trail = []
 var current_weapon
 var current_mouse_pos
 var fireball
+var direction = "down"
 
 var velocity = Vector2()
 

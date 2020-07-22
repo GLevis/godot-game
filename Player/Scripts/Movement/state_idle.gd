@@ -4,8 +4,9 @@ extends State
 
 class_name IdleState
 
+
 func _ready():
-	animation_player.play("idle")
+	animation_player.play("idle_" + persistent_state.direction)
 
 func _process(_delta):
 	if Input.is_action_pressed("move_left"):

@@ -27,20 +27,24 @@ func _physics_process(_delta):
 		# if statement to make moving diagonally without sprite freezing
 		if !Input.is_action_pressed("move_up") && !Input.is_action_pressed("move_down"):
 			animation_player.play(playerSpeed + "left")
+			persistent_state.direction = "left"
 		persistent_state.velocity.x -= move_speed.x
 		
 	elif Input.is_action_pressed("move_right"):
 		if !Input.is_action_pressed("move_up") && !Input.is_action_pressed("move_down"):
 			animation_player.play(playerSpeed + "right")
+			persistent_state.direction = "right"
 		persistent_state.velocity.x += move_speed.x
 		
 	if Input.is_action_pressed("move_up"):
 		persistent_state.velocity.y -= move_speed.y
 		animation_player.play(playerSpeed + "up")
+		persistent_state.direction = "up"
 		
 	elif Input.is_action_pressed("move_down"):
 		persistent_state.velocity.y += move_speed.y
 		animation_player.play(playerSpeed + "down")
+		persistent_state.direction = "down"
 	
 	if abs(persistent_state.velocity.x) < min_move_speed && abs(persistent_state.velocity.y) < min_move_speed:
 		change_state.call_func("idle")
