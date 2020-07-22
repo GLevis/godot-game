@@ -23,7 +23,7 @@ zoom = Vector2( 3, 3 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Minimap" type="TileMap" parent="CanvasLayer"]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.2, 0.2 )
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 4

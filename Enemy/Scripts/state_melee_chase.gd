@@ -13,7 +13,7 @@ func _ready():
 
 func no_chase(_param):
 	persistent_state.player_detected = false
-	
+
 
 func in_range(_param):
 	for body in persistent_state.inrange.get_overlapping_bodies():
