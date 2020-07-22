@@ -156,6 +156,10 @@ config/name="final-june"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 move_left={
