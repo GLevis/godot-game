@@ -3,7 +3,6 @@
 [ext_resource path="res://World/Sprites/minimap.tres" type="TileSet" id=1]
 [ext_resource path="res://World/Scripts/Minimap.gd" type="Script" id=2]
 
-
 [node name="Minimap" type="TileMap"]
 scale = Vector2( 0.1, 0.1 )
 tile_set = ExtResource( 1 )
@@ -12,3 +11,6 @@ cell_quadrant_size = 4
 cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
 format = 1
 script = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

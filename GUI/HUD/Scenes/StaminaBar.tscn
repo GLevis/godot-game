@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GUI/HUD/Sprites/HUD_staminabar.png" type="Texture" id=1]
+
+[node name="StaminaBar" type="TextureProgress"]
+anchor_left = 0.018
+anchor_top = 0.017
+anchor_right = 0.07
+anchor_bottom = 0.022
+margin_left = -18.432
+margin_top = -10.2
+margin_right = -17.68
+margin_bottom = -10.2
+value = 100.0
+texture_progress = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -6,6 +6,7 @@ var shown_tiles = []
 var current_pos = Vector2()
 var player_pos = Vector2()
 
+const CIRCLE_RADIUS = 6
 var tilemap
 
 func _ready():
@@ -26,8 +27,17 @@ func _process(_delta):
 		set_cellv(current_pos, 1)
 		set_cellv(player_pos, 0)
 		current_pos = player_pos
-	for cell in hidden_tiles:
-		if cell.distance_to(player_pos) <= 4:
-			set_cellv(cell, 1)
-			hidden_tiles.erase(cell)
-			shown_tiles.append(cell)
+
+	
+		for cell in hidden_tiles:
+			if cell.distance_to(player_pos) <= CIRCLE_RADIUS:
+				set_cellv(cell, 1)
+				hidden_tiles.erase(cell)
+				shown_tiles.append(cell)
+	
+	#			else:
+		for cell in shown_tiles:
+			if cell.distance_to(player_pos) > CIRCLE_RADIUS:
+				set_cellv(cell, -1)
+				hidden_tiles.append(cell)
+				shown_tiles.erase(cell)

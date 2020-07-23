@@ -25,7 +25,7 @@ var prevHp = hp
 var inventory = inventory_scene.instance()
 var inventoryToggled = false
 
-onready var health_bar = get_node("CanvasLayer/HealthBar")
+onready var health_bar = get_node("CanvasLayer/HUDbars/Bars/HealthBar")
 
 func _ready():
 	state_factory = PlayerStateFactory.new()
